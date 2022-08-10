@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
 const HomePage = () => {
-  return <h2>HomePage</h2>;
+  return (
+    <Wrapper>
+      <h2>HomePage</h2>
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.section``;

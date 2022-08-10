@@ -1,7 +1,6 @@
 import React from "react";
 import { Navbar, Sidebar, Footer, ScrollTop } from "../components";
 import { Outlet } from "react-router-dom";
-
 const SharedLayout = () => {
   return (
     <>

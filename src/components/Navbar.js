@@ -1,13 +1,41 @@
+import { useEffect } from "react";
 import styled from "styled-components";
 import { links } from "../utils/navLinks";
-import { AiOutlineBars } from "../utils/icons";
+import { AiOutlineBars, CgCloseR } from "../utils/icons";
 import { Link, NavLink } from "react-router-dom";
+import useMediaQuery from "../utils/mediaQuery";
+import { sidebarOpen, sidebarClose } from "../features/sidebar/sidebarSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { gsap } from "gsap/dist/gsap";
 
 const Navbar = () => {
+  const { isSidebar } = useSelector((store) => store.sidebar);
+  const dispatch = useDispatch();
+  const mediaQuery = useMediaQuery("(min-width: 992px)");
+
+  useEffect(() => {
+    if (mediaQuery) {
+      dispatch(sidebarClose());
+    }
+  }, [mediaQuery]);
+
+  useEffect(() => {
+    gsap.set(".sidebar", { x: "-100%" });
+  }, []);
+
+  useEffect(() => {
+    const tl = gsap.timeline();
+    if (isSidebar) {
+      tl.to(".sidebar", { duration: 1, autoAlpha: 1, x: "0%" });
+    } else {
+      tl.to(".sidebar", { duration: 1, autoAlpha: 0, x: "-100%" });
+    }
+  }, [isSidebar]);
+
   return (
     <Wrapper>
-      <div className="">
-        <Link to="/">
+      <div>
+        <Link to="/" onClick={() => dispatch(sidebarClose())}>
           <h3>
             Hungry<span>Hog</span>
           </h3>
@@ -33,7 +61,17 @@ const Navbar = () => {
         </ul>
       </div>
       <div>
-        <AiOutlineBars className="nav-toggle" />
+        {!isSidebar ? (
+          <AiOutlineBars
+            className="nav-toggle"
+            onClick={() => dispatch(sidebarOpen())}
+          />
+        ) : (
+          <CgCloseR
+            className="nav-toggle"
+            onClick={() => dispatch(sidebarClose())}
+          />
+        )}
       </div>
     </Wrapper>
   );
@@ -47,6 +85,10 @@ const Wrapper = styled.section`
   align-items: center;
   padding: 0rem 2rem;
   background: var(--primary-clr-4);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  border-bottom: solid 2px var(--primary-white);
 
   h3 {
     cursor: pointer;
@@ -76,15 +118,13 @@ const Wrapper = styled.section`
     letter-spacing: 1px;
     transition: var(--transition);
     &:hover {
-      background: var(--primary-clr-5);
-      color: var(--primary-white);
+      color: #fc3;
     }
   }
 
   .active {
     padding: 1rem 0.5rem;
-    background: var(--primary-clr-3);
-    color: #222;
+    color: var(--primary-clr-3);
   }
 
   .nav-toggle {
