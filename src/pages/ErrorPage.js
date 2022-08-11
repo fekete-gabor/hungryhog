@@ -1,9 +1,7 @@
-import styled from "styled-components";
+import { Error } from "../components/";
 
 const ErrorPage = () => {
-  return <h2>ErrorPage</h2>;
+  return <Error />;
 };
-
-const Wrapper = styled.section``;
 
 export default ErrorPage;

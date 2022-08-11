@@ -48,7 +48,7 @@ const Wrapper = styled.section`
     padding: 1rem 0.5rem;
     color: var(--primary-white);
     text-transform: capitalize;
-    font-size: 2rem;
+    font-size: clamp(1rem, 10vw, 2.5rem);
     letter-spacing: 1px;
     transition: var(--transition);
     &:hover {

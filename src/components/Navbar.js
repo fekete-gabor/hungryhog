@@ -92,6 +92,7 @@ const Wrapper = styled.section`
 
   h3 {
     cursor: pointer;
+    font-family: var(--font-family-secondary);
     color: var(--primary-white);
     transition: var(--transition);
     &:hover {
@@ -134,7 +135,7 @@ const Wrapper = styled.section`
     color: var(--primary-white);
     transition: var(--transition);
     &:hover {
-      color: var(--primary-clr-5);
+      color: var(--primary-clr-3);
     }
   }
 
