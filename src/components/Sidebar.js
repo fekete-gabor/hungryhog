@@ -43,6 +43,7 @@ const Wrapper = styled.section`
   border: solid 2px var(--primary-white);
   position: fixed;
   top: 0;
+  z-index: 998;
 
   .link {
     padding: 1rem 0.5rem;

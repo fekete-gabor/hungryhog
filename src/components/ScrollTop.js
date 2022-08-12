@@ -21,6 +21,7 @@ const Wrapper = styled.section`
     font-size: 2.5rem;
     transition: var(--transition);
     transform: scale(1);
+    z-index: 997;
     &:hover {
       transform: scale(1.3);
       color: var(--primary-clr-5);
