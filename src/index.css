@@ -29,6 +29,7 @@ Variables
   --primary-clr-6: #d36938;
   --primary-black: #222;
   --primary-white: #f2f2f0;
+  --border:solid 2px #f2f2f0;
   --transition: all 0.3s linear;
 }
 
@@ -151,52 +152,6 @@ p {
     line-height: 1;
   }
 }
-/*  global classes */
 
-/* section */
-.section {
-  padding: 80px 0;
-}
 
-.section-center {
-  width: 90vw;
-  margin: 0 auto;
-  max-width: var(--max-width);
-}
 
-@media screen and (min-width: 992px) {
-  .section-center {
-    width: 95vw;
-  }
-}
-
-.text-center {
-  text-align: center;
-}
-
-@keyframes spinner {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.btn {
-  cursor: pointer;
-  display: inline-block;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: var(--spacing);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  padding: 0.5rem 0.75rem;
-  color: #404759;
-  background-color: orange;
-  border: none;
-  font-size: 1rem;
-  border-radius: 5px;
-  transition: var(--transition);
-}
-
-.btn:hover {
-  color: orange;
-  background: var(--clr-primary-5);
-}

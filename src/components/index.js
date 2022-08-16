@@ -6,6 +6,7 @@ import Error from "./Error";
 import Hero from "./Hero";
 import HeroSlides from "./HeroSlides";
 import Environment from "./Environment";
+import EnvironmentArticle from "./EnvironmentArticle";
 
 export {
   Navbar,
@@ -16,4 +17,5 @@ export {
   Hero,
   HeroSlides,
   Environment,
+  EnvironmentArticle,
 };

@@ -88,7 +88,7 @@ const Wrapper = styled.section`
   position: sticky;
   top: 0;
   z-index: 999;
-  border-bottom: solid 2px var(--primary-white);
+  border-bottom: var(--border);
 
   h3 {
     cursor: pointer;

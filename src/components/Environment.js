@@ -1,31 +1,15 @@
 import { useEffect } from "react";
 import styled from "styled-components";
-import bg1 from "../assets/environment_1.jpg";
-import bg2 from "../assets/environment_2.jpg";
-import bg3 from "../assets/environment_3.jpg";
-import bg4 from "../assets/environment_4.jpg";
-import { gsap } from "gsap/dist/gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+import { useDispatch, useSelector } from "react-redux/es/exports";
+import { getArticles } from "../features/environment/environmentSlice";
+import { EnvironmentArticle } from "./index";
 
 const Environment = () => {
+  const dispatch = useDispatch();
+  const { articles } = useSelector((store) => store.environment);
+
   useEffect(() => {
-    gsap.utils.toArray(".environment-img").forEach((img, i) => {
-      const target = img.parentElement.children[1];
-      ScrollTrigger.create({
-        trigger: img,
-        start: "top center",
-        end: "bottom center",
-        markers: true,
-        onEnter: () =>
-          gsap.to(target, {
-            duration: 2.5,
-            ease: "circ.out",
-            scaleY: 0,
-            transformOrigin: "top center",
-          }),
-      });
-    });
+    dispatch(getArticles());
   }, []);
 
   return (
@@ -33,71 +17,10 @@ const Environment = () => {
       <div className="title-container">
         <h2>környezet</h2>
       </div>
-      <div className="environment-container">
-        <article className="">
-          <header>
-            <img
-              src={bg1}
-              alt="illustration"
-              className="environment-img"
-              data-depth="0.1"
-            />
-            <div className="environment-mask"></div>
-          </header>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Reprehenderit voluptatem laudantium quos accusantium perferendis
-            deleniti officia optio odit exercitationem. Repellat?
-          </p>
-        </article>
-        <article className="">
-          <header>
-            <img
-              src={bg2}
-              alt="illustration"
-              className="environment-img"
-              data-depth="0.3"
-            />
-            <div className="environment-mask"></div>
-          </header>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Reprehenderit voluptatem laudantium quos accusantium perferendis
-            deleniti officia optio odit exercitationem. Repellat?
-          </p>
-        </article>
-        <article className="">
-          <header>
-            <img
-              src={bg3}
-              alt="illustration"
-              className="environment-img"
-              data-depth="0.5"
-            />
-            <div className="environment-mask"></div>
-          </header>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Reprehenderit voluptatem laudantium quos accusantium perferendis
-            deleniti officia optio odit exercitationem. Repellat?
-          </p>
-        </article>
-        <article className="">
-          <header>
-            <img
-              src={bg4}
-              alt="illustration"
-              className="environment-img"
-              data-depth="0.8"
-            />
-            <div className="environment-mask"></div>
-          </header>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Reprehenderit voluptatem laudantium quos accusantium perferendis
-            deleniti officia optio odit exercitationem. Repellat?
-          </p>
-        </article>
+      <div className="env-container">
+        {articles.map((article) => {
+          return <EnvironmentArticle article={article} />;
+        })}
       </div>
     </Wrapper>
   );
@@ -106,9 +29,9 @@ const Environment = () => {
 const Wrapper = styled.section`
   width: 100%;
   height: fit-content;
-  min-height: 100vh;
   background: var(--primary-clr-4);
   color: var(--primary-white);
+  border-bottom: var(--border);
 
   .title-container {
     width: 100%;
@@ -117,22 +40,169 @@ const Wrapper = styled.section`
     color: var(--primary-white);
   }
 
-  header {
+  .env-article {
+    margin: 2rem 0;
     position: relative;
-    width: fit-content;
+  }
+
+  .desc,
+  .env-mask {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .desc {
+    z-index: 3;
+    width: 100%;
+    background: rgba(1, 1, 1, 0.3);
+    padding: 1.5rem;
+    border-radius: 25px;
+    h3 {
+      color: var(--primary-clr-3);
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 0.85rem;
+      color: var(--primary-white);
+    }
+  }
+
+  .env-mask {
+    width: 100%;
+    height: 100%;
+    background: #222;
+    opacity: 0.4;
+    z-index: 2;
+  }
+
+  .img-container {
+    width: 100%;
+    height: 600px;
+    margin: 2rem 0;
+    z-index: 1;
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 25px;
     }
-    div {
-      position: absolute;
-      background: var(--primary-clr-4);
-      width: 100%;
-      height: 100%;
+  }
+
+  @media screen and (min-width: 250px) {
+    .desc {
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  @media screen and (min-width: 350px) {
+    .desc {
+      p {
+        font-size: 1.15rem;
+      }
+    }
+  }
+
+  @media screen and (min-width: 500px) {
+    .desc {
+      width: 80%;
+    }
+  }
+
+  @media screen and (min-width: 820px) {
+    .env-article {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+      max-width: 85vw;
+      margin: 0 auto;
+    }
+
+    .desc {
+      position: unset;
       top: 0;
       left: 0;
+      transform: translate(0, 0);
+      width: 100%;
+      height: min-content;
+      background: whitesmoke;
+      margin: 2rem 0;
+      p {
+        color: var(--primary-black);
+      }
+    }
+
+    .odd-img {
+      transform: translateX(2rem);
+    }
+
+    .odd-desc {
+      transform: translateX(-2rem);
+    }
+
+    .even-img {
+      transform: translateX(-2rem);
+    }
+
+    .even-desc {
+      transform: translateX(2rem);
+    }
+
+    .img-container {
+      border: inset 2px burlywood;
+      border-radius: 25px;
+      img {
+        border-radius: 25px;
+      }
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    .env-article {
+      position: relative;
+      max-width: 75vw;
+      margin: 2rem auto;
+    }
+
+    .desc {
+      padding: 3.5rem;
+    }
+
+    .odd-img {
+      transform: translateX(7.5);
+    }
+
+    .odd-desc {
+      transform: translateX(-7.5);
+    }
+
+    .even-img {
+      transform: translateX(-7.5);
+    }
+
+    .even-desc {
+      transform: translateX(7.5);
+    }
+  }
+
+  @media screen and (min-width: 1800px) {
+    .odd-img {
+      transform: translateX(10rem);
+    }
+
+    .odd-desc {
+      transform: translateX(-10rem);
+    }
+
+    .even-img {
+      transform: translateX(-10rem);
+    }
+
+    .even-desc {
+      transform: translateX(10rem);
     }
   }
 `;

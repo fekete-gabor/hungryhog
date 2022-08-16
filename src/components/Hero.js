@@ -76,9 +76,10 @@ const Wrapper = styled.section`
   width: 100%;
   height: 85vh;
   background: #222;
-  border-bottom: solid 2px var(--primary-white);
+  border-bottom: var(--border);
   position: relative;
   overflow: hidden;
+  user-select: none;
 
   .banner-container {
     width: 100%;

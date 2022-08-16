@@ -40,7 +40,7 @@ const Wrapper = styled.section`
   align-items: center;
   padding: 0rem 2rem;
   background: var(--primary-clr-4);
-  border: solid 2px var(--primary-white);
+  border: var(--border);
   position: fixed;
   top: 0;
   z-index: 998;
