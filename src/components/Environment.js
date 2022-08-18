@@ -18,8 +18,8 @@ const Environment = () => {
         <h2>környezet</h2>
       </div>
       <div className="env-container">
-        {articles.map((article) => {
-          return <EnvironmentArticle article={article} />;
+        {articles.map((article, i) => {
+          return <EnvironmentArticle article={article} key={i} />;
         })}
       </div>
     </Wrapper>
@@ -34,7 +34,6 @@ const Wrapper = styled.section`
   border-bottom: var(--border);
 
   .title-container {
-    width: 100%;
     padding-top: 3rem;
     text-align: center;
     color: var(--primary-white);
@@ -80,7 +79,7 @@ const Wrapper = styled.section`
 
   .img-container {
     width: 100%;
-    height: 600px;
+    height: 650px;
     margin: 2rem 0;
     z-index: 1;
     img {
@@ -163,7 +162,6 @@ const Wrapper = styled.section`
   @media screen and (min-width: 1200px) {
     .env-article {
       position: relative;
-      max-width: 75vw;
       margin: 2rem auto;
     }
 

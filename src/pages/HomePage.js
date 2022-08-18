@@ -1,11 +1,13 @@
 import styled from "styled-components";
-import { Hero, Environment } from "../components/";
+import { Hero, Environment, Slogan, ContactUs } from "../components/";
 
 const HomePage = () => {
   return (
     <Wrapper>
       <Hero />
       <Environment />
+      <Slogan />
+      <ContactUs />
       <div className="a"></div>
     </Wrapper>
   );

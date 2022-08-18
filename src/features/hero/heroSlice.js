@@ -3,7 +3,6 @@ import axios from "axios";
 
 const initialState = {
   isActive: false,
-  isLoading: false,
   slides: [],
 };
 
@@ -28,9 +27,6 @@ const heroSlice = createSlice({
   reducers: {
     isVisible: (state) => {
       state.isActive = true;
-    },
-    isFetching: (state) => {
-      state.isLoading = true;
     },
   },
   extraReducers: {

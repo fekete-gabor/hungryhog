@@ -4,8 +4,9 @@ Font families
 ===============
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Oswald&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Oswald&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Oswald&display=swap");
 
 /*
 =============== 
@@ -14,22 +15,22 @@ Variables
 */
 
 :root {
-  --font-family-secondary:'Abril Fatface', cursive;
+  --ff-cursive: "Abril Fatface", cursive;
+  --ff-secondary: "Bebas Neue", cursive;
   /* darkest grey - used for headings */
   --clr-grey-1: hsl(209, 61%, 16%);
   --clr-grey-2: hsl(209, 34%, 30%);
   /* grey used for paragraphs */
   --clr-grey-3: hsl(210, 31%, 80%);
-  --cursive-font-family:font-family: 'Courgette', cursive;
-  --primary-clr-1: #BFBAB0;
-  --primary-clr-2: #8C693E;
+  --primary-clr-1: #bfbab0;
+  --primary-clr-2: #8c693e;
   --primary-clr-3: #f2a007;
   --primary-clr-4: #2b2724;
   --primary-clr-5: #d9483b;
   --primary-clr-6: #d36938;
   --primary-black: #222;
   --primary-white: #f2f2f0;
-  --border:solid 2px #f2f2f0;
+  --border: solid 2px #f2f2f0;
   --transition: all 0.3s linear;
 }
 
@@ -48,7 +49,7 @@ Global Styles
 }
 
 body {
-  font-family:  'Oswald', sans-serif,  -apple-system, BlinkMacSystemFont,
+  font-family: "Oswald", sans-serif, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
     sans-serif;
   background: whitesmoke;
@@ -108,8 +109,6 @@ p {
   color: var(--clr-grey-2);
 }
 
-
-
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -152,6 +151,3 @@ p {
     line-height: 1;
   }
 }
-
-
-

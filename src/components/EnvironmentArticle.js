@@ -8,7 +8,7 @@ const EnvironmentArticle = ({ article }) => {
   const img = article.attributes.img.data.attributes.url;
   if (id % 2 === 0 && mediaQuery) {
     return (
-      <article className="env-article" key={id}>
+      <article className="env-article">
         <header
           className={`${
             mediaQuery ? "odd-img img-container" : "img-container"
@@ -25,7 +25,7 @@ const EnvironmentArticle = ({ article }) => {
     );
   } else {
     return (
-      <article className="env-article" key={id}>
+      <article className="env-article">
         <header className={`${mediaQuery ? "even-desc desc" : "desc"}`}>
           <h3>{title}</h3>
           <p>{desc}</p>

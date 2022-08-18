@@ -7,6 +7,13 @@ import Hero from "./Hero";
 import HeroSlides from "./HeroSlides";
 import Environment from "./Environment";
 import EnvironmentArticle from "./EnvironmentArticle";
+import Slogan from "./Slogan";
+import ContactUs from "./ContactUs";
+import OpeningHours from "./OpeningHours";
+import Contacts from "./Contacts";
+import ContactsForm from "./ContactsForm";
+import CustomInput from "./CustomInput";
+import CustomTextArea from "./CustomTextArea";
 
 export {
   Navbar,
@@ -18,4 +25,11 @@ export {
   HeroSlides,
   Environment,
   EnvironmentArticle,
+  Slogan,
+  ContactUs,
+  OpeningHours,
+  Contacts,
+  ContactsForm,
+  CustomInput,
+  CustomTextArea,
 };

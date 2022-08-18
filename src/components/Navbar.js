@@ -77,7 +77,7 @@ const Navbar = () => {
   );
 };
 
-const Wrapper = styled.section`
+const Wrapper = styled.nav`
   width: 100%;
   min-height: 70px;
   display: grid;
@@ -92,7 +92,7 @@ const Wrapper = styled.section`
 
   h3 {
     cursor: pointer;
-    font-family: var(--font-family-secondary);
+    font-family: var(--ff-cursive);
     color: var(--primary-white);
     transition: var(--transition);
     &:hover {
