@@ -18,7 +18,7 @@ const Contacts = () => {
 
 const Wrapper = styled.div`
   display: grid;
-  padding: 2rem;
+  padding: 2rem 0;
   border: inset 2px var(--primary-clr-5);
   border-radius: 25px;
 
@@ -31,6 +31,10 @@ const Wrapper = styled.div`
     align-items: center;
     font-size: 1.5rem;
     color: var(--primary-white);
+  }
+
+  @media screen and (min-width: 300px) {
+    padding: 2rem;
   }
 `;
 

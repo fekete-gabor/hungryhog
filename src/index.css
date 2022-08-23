@@ -5,7 +5,6 @@ Font families
 */
 
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Oswald&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Oswald&display=swap");
 
 /*
@@ -32,6 +31,7 @@ Variables
   --primary-white: #f2f2f0;
   --border: solid 2px #f2f2f0;
   --transition: all 0.3s linear;
+  --title-padding: 2rem;
 }
 
 /*
@@ -123,6 +123,28 @@ p {
 ::-webkit-scrollbar-thumb {
   background: var(--primary-clr-4);
   border-radius: 10px;
+}
+
+.title-container {
+  padding-top: var(--title-padding);
+  text-align: center;
+  color: var(--primary-white);
+}
+
+.btn {
+  cursor: pointer;
+  z-index: 1;
+  position: relative;
+  overflow: hidden;
+  margin: 2rem;
+  margin-bottom: 0;
+  padding: 1rem 1rem 1rem 1.5rem;
+  border: solid 1px var(--primary-clr-5);
+  font-size: clamp(1rem, 5vw, 1.5rem);
+  color: var(--primary-white);
+  background: none;
+  text-transform: uppercase;
+  transition: var(--transition);
 }
 
 @media screen and (min-width: 800px) {

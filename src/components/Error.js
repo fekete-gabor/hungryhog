@@ -30,12 +30,12 @@ const Error = () => {
       <h2>a keresett oldal nem található</h2>
       <div className="link-container">
         <Link to="/">
-          <button className="error-btn">
+          <button className="error-btn btn">
             vissza a főoldalra<span></span>
           </button>
         </Link>
         <Link to="/menu">
-          <button className="error-btn">
+          <button className="error-btn btn">
             megnézem az étlapot<span></span>
           </button>
         </Link>
@@ -70,29 +70,14 @@ const Wrapper = styled.section`
   .link-container {
     margin-top: 2rem;
 
-    button {
-      cursor: pointer;
-      z-index: 1;
-      position: relative;
-      overflow: hidden;
-      margin: 1rem;
-      padding: 1rem 1rem 1rem 1.5rem;
-      border: solid 1px var(--primary-clr-5);
-      font-size: clamp(1rem, 5vw, 1.5rem);
-      color: var(--primary-white);
-      background: none;
-      text-transform: uppercase;
-      transition: var(--transition);
-
-      span {
-        z-index: -1;
-        position: absolute;
-        top: 0;
-        left: -10%;
-        background: var(--primary-clr-5);
-        height: 100%;
-        transform: skewX(-20deg);
-      }
+    span {
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      left: -10%;
+      background: var(--primary-clr-5);
+      height: 100%;
+      transform: skewX(-20deg);
     }
   }
 `;

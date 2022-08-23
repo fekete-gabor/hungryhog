@@ -25,7 +25,8 @@ const Wrapper = styled.section`
   text-align: center;
   background: var(--primary-black);
   display: grid;
-  padding-top: 3rem;
+  padding: 3rem 1rem;
+  gap: 2rem;
   border-bottom: var(--border);
 
   @media screen and (min-width: 992px) {

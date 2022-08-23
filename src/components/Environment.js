@@ -33,12 +33,6 @@ const Wrapper = styled.section`
   color: var(--primary-white);
   border-bottom: var(--border);
 
-  .title-container {
-    padding-top: 3rem;
-    text-align: center;
-    color: var(--primary-white);
-  }
-
   .env-article {
     margin: 2rem 0;
     position: relative;
@@ -116,7 +110,6 @@ const Wrapper = styled.section`
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       align-items: center;
-      max-width: 85vw;
       margin: 0 auto;
     }
 
@@ -163,6 +156,7 @@ const Wrapper = styled.section`
     .env-article {
       position: relative;
       margin: 2rem auto;
+      max-width: 85vw;
     }
 
     .desc {

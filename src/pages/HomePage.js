@@ -1,5 +1,11 @@
 import styled from "styled-components";
-import { Hero, Environment, Slogan, ContactUs } from "../components/";
+import {
+  Hero,
+  Environment,
+  Slogan,
+  ContactUs,
+  ContactsForm,
+} from "../components/";
 
 const HomePage = () => {
   return (
@@ -8,6 +14,7 @@ const HomePage = () => {
       <Environment />
       <Slogan />
       <ContactUs />
+      <ContactsForm />
       <div className="a"></div>
     </Wrapper>
   );
