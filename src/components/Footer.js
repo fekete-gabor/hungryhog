@@ -12,7 +12,6 @@ const Wrapper = styled.section`
   width: 100%;
   color: dodgerblue;
   background: var(--primary-clr-4);
-  border-top: solid 2px var(--primary-white);
 `;
 
 export default Footer;

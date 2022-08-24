@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux/es/exports";
-import ReactMarkdown from "react-markdown";
 import { Link } from "react-router-dom";
 import { gsap } from "gsap/dist/gsap";
 
@@ -29,11 +28,25 @@ const OpeningHours = () => {
 
   return (
     <Wrapper>
-      <h2>{openingHours?.attributes?.title}</h2>
-      <ReactMarkdown
-        children={openingHours?.attributes?.desc}
-        escapeHtml={false}
-      />
+      <h2>nyitvatartás</h2>
+      {openingHours.map((item) => {
+        const { id, day_start, day_end, hour_start, hour_end } = item;
+
+        return (
+          <div key={id}>
+            <p className="capitalize">
+              {day_end !== null
+                ? `${day_start} - ${day_end}:`
+                : `${day_start}:`}
+            </p>
+            <p>
+              {hour_end !== null
+                ? `${hour_start} - ${hour_end}-ig`
+                : `${hour_start}`}
+            </p>
+          </div>
+        );
+      })}
       <Link to="/menu">
         <button className="menu-btn btn">
           megnézem az étlapot<span></span>
@@ -56,8 +69,16 @@ const Wrapper = styled.section`
   }
 
   p {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: var(--primary-white);
+  }
+
+  div {
+    margin-bottom: 0.5rem;
+  }
+
+  .capitalize {
+    text-transform: capitalize;
   }
 
   span {
@@ -72,6 +93,10 @@ const Wrapper = styled.section`
 
   @media screen and (min-width: 300px) {
     padding: 2rem;
+
+    p {
+      font-size: 1.5rem;
+    }
   }
 `;
 

@@ -1,7 +1,5 @@
 import styled from "styled-components";
-import { ContactsForm } from "./index";
 import { useSelector } from "react-redux/es/exports";
-import ReactMarkdown from "react-markdown";
 
 const Contacts = () => {
   const { contacts } = useSelector((store) => store.contacts);
@@ -9,8 +7,19 @@ const Contacts = () => {
   return (
     <Wrapper>
       <div className="contacts">
-        <h2>{contacts?.attributes?.title}</h2>
-        <ReactMarkdown children={contacts?.attributes?.desc} />
+        <h2>elérhetőségek</h2>
+        {contacts.map((contact) => {
+          const { id } = contact;
+          const { address, email, phone_number } = contact.attributes;
+
+          return (
+            <div key={id}>
+              <p>{address}</p>
+              <p>{email}</p>
+              <p>{phone_number}</p>
+            </div>
+          );
+        })}
       </div>
     </Wrapper>
   );
@@ -28,13 +37,18 @@ const Wrapper = styled.div`
   }
 
   p {
+    margin: 1rem 0;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: var(--primary-white);
   }
 
   @media screen and (min-width: 300px) {
     padding: 2rem;
+
+    p {
+      font-size: 1.75rem;
+    }
   }
 `;
 

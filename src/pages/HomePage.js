@@ -15,17 +15,12 @@ const HomePage = () => {
       <Slogan />
       <ContactUs />
       <ContactsForm />
-      <div className="a"></div>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.section`
   height: fit-content;
-  .a {
-    height: 300vh;
-    background: #222;
-  }
 `;
 
 export default HomePage;

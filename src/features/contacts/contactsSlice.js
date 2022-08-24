@@ -3,7 +3,6 @@ import axios from "axios";
 
 const initialState = {
   isLoading: false,
-  allContacts: [],
   contacts: [],
   openingHours: [],
 };
@@ -31,19 +30,10 @@ const contactsSlice = createSlice({
       state.isLoading = true;
     },
     [getContacts.fulfilled]: (state, action) => {
+      const { nyitvatartas } = action.payload[0].attributes;
       state.isLoading = false;
-
-      const tempHours = action.payload.find(
-        (item) => item.attributes.title === "nyitvatartás"
-      );
-
-      const tempContacts = action.payload.find(
-        (item) => item.attributes.title === "elérhetőségek"
-      );
-
-      state.allContacts = action.payload;
-      state.contacts = tempContacts;
-      state.openingHours = tempHours;
+      state.contacts = action.payload;
+      state.openingHours = nyitvatartas;
     },
     [getContacts.rejected]: (state) => {
       state.isLoading = false;

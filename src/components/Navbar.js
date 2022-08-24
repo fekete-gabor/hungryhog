@@ -10,6 +10,7 @@ import { gsap } from "gsap/dist/gsap";
 
 const Navbar = () => {
   const { isSidebar } = useSelector((store) => store.sidebar);
+  const { contacts } = useSelector((store) => store.contacts);
   const dispatch = useDispatch();
   const mediaQuery = useMediaQuery("(min-width: 992px)");
 
@@ -34,45 +35,63 @@ const Navbar = () => {
 
   return (
     <Wrapper>
-      <div>
-        <Link to="/" onClick={() => dispatch(sidebarClose())}>
-          <h3>
-            Hungry<span>Hog</span>
-          </h3>
-        </Link>
-      </div>
-      <div>
-        <ul className="link-container">
-          {links.map((link) => {
-            const { text, url, id } = link;
-            return (
-              <li key={id}>
-                <NavLink
-                  to={url}
-                  className={({ isActive }) =>
-                    isActive ? "link active" : "link"
-                  }
-                >
-                  {text}
-                </NavLink>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-      <div>
-        {!isSidebar ? (
-          <AiOutlineBars
-            className="nav-toggle"
-            onClick={() => dispatch(sidebarOpen())}
-          />
-        ) : (
-          <CgCloseR
-            className="nav-toggle"
-            onClick={() => dispatch(sidebarClose())}
-          />
-        )}
-      </div>
+      <section className="nav-container">
+        <div>
+          <Link to="/" onClick={() => dispatch(sidebarClose())}>
+            <h3>
+              Hungry<span>Hog</span>
+            </h3>
+          </Link>
+        </div>
+        <div>
+          <header className="contacts-header">
+            <div>
+              {contacts.map((contact) => {
+                const { id } = contact;
+                const { address, email, phone_number } = contact.attributes;
+
+                return (
+                  <p key={id}>
+                    {address} | {email} | {phone_number}
+                  </p>
+                );
+              })}
+            </div>
+          </header>
+          <div>
+            <ul className="link-container">
+              {links.map((link) => {
+                const { text, url, id } = link;
+                return (
+                  <li key={id}>
+                    <NavLink
+                      to={url}
+                      className={({ isActive }) =>
+                        isActive ? "link active" : "link"
+                      }
+                    >
+                      {text}
+                    </NavLink>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+        <div>
+          {!isSidebar ? (
+            <AiOutlineBars
+              className="nav-toggle"
+              onClick={() => dispatch(sidebarOpen())}
+            />
+          ) : (
+            <CgCloseR
+              className="nav-toggle"
+              onClick={() => dispatch(sidebarClose())}
+            />
+          )}
+        </div>
+      </section>
     </Wrapper>
   );
 };
@@ -81,14 +100,26 @@ const Wrapper = styled.nav`
   width: 100%;
   min-height: 70px;
   display: grid;
-  grid-template-columns: auto 1fr auto;
   align-items: center;
-  padding: 0rem 2rem;
   background: var(--primary-clr-4);
   position: sticky;
   top: 0;
   z-index: 999;
   border-bottom: var(--border);
+  text-align: center;
+
+  .nav-container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    padding: 0rem 2rem;
+  }
+
+  .contacts-header {
+    p {
+      color: var(--primary-white);
+    }
+  }
 
   h3 {
     cursor: pointer;
@@ -111,7 +142,7 @@ const Wrapper = styled.nav`
   }
 
   .link {
-    padding: 1rem 0.5rem;
+    padding: 0.25rem 0.5rem;
     display: none;
     color: var(--primary-white);
     text-transform: capitalize;
@@ -124,7 +155,6 @@ const Wrapper = styled.nav`
   }
 
   .active {
-    padding: 1rem 0.5rem;
     color: var(--primary-clr-3);
   }
 
