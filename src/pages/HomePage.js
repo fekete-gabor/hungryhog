@@ -5,6 +5,7 @@ import {
   Slogan,
   ContactUs,
   ContactsForm,
+  GoogleMaps,
 } from "../components/";
 
 const HomePage = () => {
@@ -15,6 +16,7 @@ const HomePage = () => {
       <Slogan />
       <ContactUs />
       <ContactsForm />
+      <GoogleMaps />
     </Wrapper>
   );
 };

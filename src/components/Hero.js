@@ -144,7 +144,7 @@ const Wrapper = styled.section`
     top: 0;
     left: 0;
     background-color: #222;
-    opacity: 0.5;
+    opacity: 0.25;
     z-index: 3;
   }
 

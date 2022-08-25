@@ -7,6 +7,7 @@ import validationSchema from "../schemas/validationSchema";
 import { gsap } from "gsap/dist/gsap";
 
 const ContactsForm = () => {
+  // eslint-disable-next-line
   const [serverState, setServerState] = useState();
 
   const formEndpoint = process.env.REACT_APP_FORM_ENDPOINT;
@@ -88,39 +89,31 @@ const ContactsForm = () => {
           return (
             <Form>
               <div className="form-container">
-                <div className="form-control">
-                  <CustomInput
-                    name="name"
-                    type="text"
-                    placeholder="név*"
-                    className="form-input"
-                  />
-                </div>
-                <div className="form-control">
-                  <CustomInput
-                    name="email"
-                    type="text"
-                    placeholder="email*"
-                    className="form-input"
-                  />
-                </div>
-                <div className="form-control">
-                  <CustomInput
-                    name="subject"
-                    type="text"
-                    placeholder="tárgy"
-                    className="form-input"
-                  />
-                </div>
-                <div className="form-control">
-                  <CustomTextArea
-                    name="message"
-                    type="textarea"
-                    placeholder="üzenet*"
-                    rows="10"
-                    className="form-input"
-                  />
-                </div>
+                <CustomInput
+                  name="name"
+                  type="text"
+                  placeholder="név*"
+                  className="form-input"
+                />
+                <CustomInput
+                  name="email"
+                  type="text"
+                  placeholder="email*"
+                  className="form-input"
+                />
+                <CustomInput
+                  name="subject"
+                  type="text"
+                  placeholder="tárgy"
+                  className="form-input"
+                />
+                <CustomTextArea
+                  name="message"
+                  type="textarea"
+                  placeholder="üzenet*"
+                  rows="10"
+                  className="form-input"
+                />
                 <div className="btn-container">
                   <button
                     type="submit"

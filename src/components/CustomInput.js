@@ -4,7 +4,7 @@ const CustomInput = ({ ...props }) => {
   const [field, meta] = useField(props);
 
   return (
-    <>
+    <div className="form-control">
       <input
         {...field}
         {...props}
@@ -15,7 +15,7 @@ const CustomInput = ({ ...props }) => {
         }`}
       />
       <span className={`${meta.error ? "invalid" : "valid"}`}></span>
-    </>
+    </div>
   );
 };
 

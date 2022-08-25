@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { mediaIcons } from "../utils/icons";
 import { useSelector } from "react-redux/es/exports";
 
 const Contacts = () => {
@@ -20,6 +21,7 @@ const Contacts = () => {
             </div>
           );
         })}
+        <div className="media-icon-container">{mediaIcons}</div>
       </div>
     </Wrapper>
   );
@@ -41,6 +43,22 @@ const Wrapper = styled.div`
     align-items: center;
     font-size: 1.25rem;
     color: var(--primary-white);
+  }
+
+  .media-icon-container {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    svg {
+      margin-top: 0.5rem;
+      font-size: 2.5rem;
+      color: var(--primary-clr-3);
+      display: block;
+      transition: var(--transition);
+      &:hover {
+        color: var(--primary-clr-5);
+      }
+    }
   }
 
   @media screen and (min-width: 300px) {

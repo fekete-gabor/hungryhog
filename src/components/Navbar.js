@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import styled from "styled-components";
 import { links } from "../utils/navLinks";
+import { mediaIcons } from "../utils/icons";
 import { AiOutlineBars, CgCloseR } from "../utils/icons";
 import { Link, NavLink } from "react-router-dom";
 import useMediaQuery from "../utils/mediaQuery";
@@ -18,6 +19,7 @@ const Navbar = () => {
     if (mediaQuery) {
       dispatch(sidebarClose());
     }
+    // eslint-disable-next-line
   }, [mediaQuery]);
 
   useEffect(() => {
@@ -56,6 +58,7 @@ const Navbar = () => {
                   </p>
                 );
               })}
+              <div>{mediaIcons}</div>
             </div>
           </header>
           <div>
@@ -112,12 +115,17 @@ const Wrapper = styled.nav`
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
-    padding: 0rem 2rem;
+    padding: 0rem 0.5rem;
   }
 
   .contacts-header {
-    p {
-      color: var(--primary-white);
+    div {
+      p {
+        display: none;
+      }
+      svg {
+        display: none;
+      }
     }
   }
 
@@ -150,7 +158,7 @@ const Wrapper = styled.nav`
     letter-spacing: 1px;
     transition: var(--transition);
     &:hover {
-      color: #fc3;
+      color: var(--primary-clr-5);
     }
   }
 
@@ -166,6 +174,48 @@ const Wrapper = styled.nav`
     transition: var(--transition);
     &:hover {
       color: var(--primary-clr-3);
+    }
+  }
+
+  @media screen and (min-width: 375px) {
+    .nav-container {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+    }
+    .contacts-header {
+      margin: 0 1rem;
+      div {
+        display: flex;
+        justify-content: center;
+        p {
+          display: flex;
+          color: var(--primary-white);
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 500px) {
+    .nav-container {
+      padding: 0rem 2rem;
+    }
+  }
+
+  @media screen and (min-width: 880px) {
+    .contacts-header {
+      div {
+        gap: 0.5rem;
+        svg {
+          font-size: 1.5rem;
+          color: var(--primary-clr-3);
+          display: block;
+          transition: var(--transition);
+          &:hover {
+            color: var(--primary-clr-5);
+          }
+        }
+      }
     }
   }
 

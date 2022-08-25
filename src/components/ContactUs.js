@@ -1,16 +1,10 @@
 import { useEffect } from "react";
 import styled from "styled-components";
-import { Contacts, ContactsForm, OpeningHours } from "./index";
+import { Contacts, OpeningHours } from "./index";
 import { getContacts } from "../features/contacts/contactsSlice";
 import { useDispatch } from "react-redux/es/exports";
 
 const ContactUs = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getContacts());
-  }, []);
-
   return (
     <Wrapper>
       <Contacts />

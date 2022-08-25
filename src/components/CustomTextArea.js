@@ -4,7 +4,7 @@ const CustomTextArea = ({ ...props }) => {
   const [field, meta] = useField(props);
 
   return (
-    <>
+    <div className="form-control">
       <textarea
         {...field}
         {...props}
@@ -15,7 +15,7 @@ const CustomTextArea = ({ ...props }) => {
         }`}
       />
       <span className={`${meta.error ? "invalid" : "valid"}`}></span>
-    </>
+    </div>
   );
 };
 

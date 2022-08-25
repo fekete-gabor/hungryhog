@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { links } from "../utils/navLinks";
+import { mediaIcons } from "../utils/icons";
 import { NavLink } from "react-router-dom";
 import { sidebarClose } from "../features/sidebar/sidebarSlice";
 import { useDispatch } from "react-redux";
@@ -27,6 +28,7 @@ const Sidebar = () => {
             );
           })}
         </ul>
+        <div className="media-icon-container">{mediaIcons}</div>
       </div>
     </Wrapper>
   );
@@ -60,6 +62,24 @@ const Wrapper = styled.section`
   .active {
     padding: 1rem 0.5rem;
     color: var(--primary-clr-3);
+  }
+
+  .media-icon-container {
+    display: flex;
+    margin: 1rem auto;
+    padding: 0.3rem;
+    gap: 0.5rem;
+    border-bottom: solid 2px var(--primary-white);
+    width: min-content;
+    svg {
+      font-size: 2.5rem;
+      color: var(--primary-clr-3);
+      display: block;
+      transition: var(--transition);
+      &:hover {
+        color: var(--primary-clr-5);
+      }
+    }
   }
 `;
 
