@@ -6,7 +6,7 @@ const initialState = {
   slides: [],
 };
 
-const url = "http://localhost:1337/api/banner-slides?populate=*";
+const url = "https://hungryhog.up.railway.app/api/banner-slides?populate=*";
 
 export const getSlides = createAsyncThunk(
   "hero/getSlides",
@@ -35,7 +35,7 @@ const heroSlice = createSlice({
     },
     [getSlides.fulfilled]: (state, action) => {
       state.isLoading = false;
-      state.slides = action.payload.data[0].attributes.slides.data;
+      state.slides = action.payload.data[0].attributes.img.data;
     },
     [getSlides.rejected]: (state) => {
       state.isLoading = false;
