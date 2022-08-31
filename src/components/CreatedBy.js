@@ -11,9 +11,9 @@ const CreatedBy = () => {
 
   return (
     <Wrapper>
-      <h4>
+      <h5>
         designed &amp; built by <span>&#10084; </span>fekete gábor, {date}
-      </h4>
+      </h5>
     </Wrapper>
   );
 };
@@ -25,7 +25,7 @@ const Wrapper = styled.section`
   padding: 1rem 0;
   background-color: var(--primary-clr-3);
 
-  h4 {
+  h5 {
     color: var(--primary-black);
   }
 
