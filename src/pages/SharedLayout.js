@@ -1,4 +1,4 @@
-import { Navbar, Sidebar, Footer, ScrollTop } from "../components";
+import { Navbar, Sidebar, Footer, CreatedBy, ScrollTop } from "../components";
 import { Outlet } from "react-router-dom";
 import { useEffect } from "react";
 import { getContacts } from "../features/contacts/contactsSlice";
@@ -18,6 +18,7 @@ const SharedLayout = () => {
       <Outlet />
       <Footer />
       <ScrollTop />
+      <CreatedBy />
     </>
   );
 };

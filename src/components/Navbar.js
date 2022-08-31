@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import styled from "styled-components";
 import { links } from "../utils/navLinks";
-import { mediaIcons } from "../utils/icons";
 import { AiOutlineBars, CgCloseR } from "../utils/icons";
 import { Link, NavLink } from "react-router-dom";
 import useMediaQuery from "../utils/mediaQuery";
 import { sidebarOpen, sidebarClose } from "../features/sidebar/sidebarSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { gsap } from "gsap/dist/gsap";
+import { Contacts } from "./index";
 
 const Navbar = () => {
   const { isSidebar } = useSelector((store) => store.sidebar);
@@ -35,6 +35,18 @@ const Navbar = () => {
     }
   }, [isSidebar]);
 
+  useEffect(() => {
+    gsap.set(".contacts-header", { autoAlpha: 0, y: "-50%" });
+
+    if (contacts) {
+      gsap.to(".contacts-header", {
+        delay: 0.5,
+        autoAlpha: 1,
+        y: "0",
+      });
+    }
+  }, [contacts]);
+
   return (
     <Wrapper>
       <section className="nav-container">
@@ -48,17 +60,7 @@ const Navbar = () => {
         <div>
           <header className="contacts-header">
             <div>
-              {contacts.map((contact) => {
-                const { id } = contact;
-                const { address, email, phone_number } = contact.attributes;
-
-                return (
-                  <p key={id}>
-                    {address} | {email} | {phone_number}
-                  </p>
-                );
-              })}
-              <div>{mediaIcons}</div>
+              <Contacts layout={"flex"} />
             </div>
           </header>
           <div>

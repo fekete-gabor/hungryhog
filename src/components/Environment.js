@@ -10,6 +10,7 @@ const Environment = () => {
 
   useEffect(() => {
     dispatch(getArticles());
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -19,7 +20,10 @@ const Environment = () => {
       </div>
       <div className="env-container">
         {articles.map((article, i) => {
-          return <EnvironmentArticle article={article} key={i} />;
+          const { id } = article;
+          const props = { article, i };
+
+          return <EnvironmentArticle props={props} key={id} />;
         })}
       </div>
     </Wrapper>

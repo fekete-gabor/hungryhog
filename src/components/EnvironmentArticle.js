@@ -1,12 +1,12 @@
 import useMediaQuery from "../utils/mediaQuery";
 
-const EnvironmentArticle = ({ article }) => {
+const EnvironmentArticle = ({ props }) => {
   const mediaQuery = useMediaQuery("(min-width: 820px)");
-
-  const { id } = article;
+  const { article, i } = props;
   const { title, desc } = article.attributes;
   const img = article.attributes.img.data.attributes.url;
-  if (id % 2 === 0 && mediaQuery) {
+
+  if (i % 2 === 0 && mediaQuery) {
     return (
       <article className="env-article">
         <header

@@ -15,6 +15,7 @@ import ContactsForm from "./ContactsForm";
 import CustomInput from "./CustomInput";
 import CustomTextArea from "./CustomTextArea";
 import GoogleMaps from "./GoogleMaps";
+import CreatedBy from "./CreatedBy";
 
 export {
   Navbar,
@@ -34,4 +35,5 @@ export {
   CustomInput,
   CustomTextArea,
   GoogleMaps,
+  CreatedBy,
 };
