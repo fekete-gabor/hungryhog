@@ -1,23 +1,29 @@
 import styled from "styled-components";
 import { BiUpArrowAlt } from "../utils/icons";
 
+const scrollTop = () => {
+  window.scrollTo(0, 0);
+};
+
 const ScrollTop = () => {
   return (
     <Wrapper>
-      <a href="#">
+      <button onClick={() => scrollTop()}>
         <BiUpArrowAlt />
-      </a>
+      </button>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.section`
-  a {
+  button {
     cursor: pointer;
     position: fixed;
     bottom: 15px;
     right: 15px;
     color: var(--primary-clr-5);
+    background: none;
+    border: none;
     font-size: 2.5rem;
     transition: var(--transition);
     transform: scale(1);

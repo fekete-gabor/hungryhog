@@ -11,6 +11,7 @@ const Hero = () => {
 
   useEffect(() => {
     dispatch(getSlides());
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -44,6 +45,7 @@ const Hero = () => {
         }
       }
     });
+    // eslint-disable-next-line
   }, [isActive, slides]);
 
   return (

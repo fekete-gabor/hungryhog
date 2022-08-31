@@ -21,7 +21,7 @@ export const mediaIcons = icons.map((item) => {
   const { id, url, icon } = item;
 
   return (
-    <a href={url} target="_blank" key={id}>
+    <a href={url} target="_blank" rel="noreferrer" key={id}>
       {icon}
     </a>
   );

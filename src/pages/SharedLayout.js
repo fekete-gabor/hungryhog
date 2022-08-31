@@ -9,6 +9,7 @@ const SharedLayout = () => {
 
   useEffect(() => {
     dispatch(getContacts());
+    // eslint-disable-next-line
   }, []);
 
   return (

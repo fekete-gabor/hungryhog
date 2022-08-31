@@ -6,7 +6,7 @@ const initialState = {
   slides: [],
 };
 
-const url = "https://hungryhog.up.railway.app/api/banner-slides?populate=*";
+const url = process.env.REACT_APP_HERO_SLIDES;
 
 export const getSlides = createAsyncThunk(
   "hero/getSlides",

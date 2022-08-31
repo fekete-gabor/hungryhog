@@ -20,6 +20,7 @@ const HeroSlides = () => {
         setCurrentIndex(index);
       }, 5000);
     }
+    // eslint-disable-next-line
   }, [isActive, currentIndex]);
 
   useEffect(() => {

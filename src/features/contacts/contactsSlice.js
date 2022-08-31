@@ -7,7 +7,7 @@ const initialState = {
   openingHours: [],
 };
 
-const url = "https://hungryhog.up.railway.app/api/contacts?populate=*";
+const url = process.env.REACT_APP_CONTACTS;
 
 export const getContacts = createAsyncThunk(
   "contacts/getContacts",

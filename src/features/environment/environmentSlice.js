@@ -5,7 +5,7 @@ const initialState = {
   isLoading: false,
   articles: [],
 };
-const url = "http://hungryhog.up.railway.app/api/environments?populate=*";
+const url = process.env.REACT_APP_ENVIRONMENT_ARTICLES;
 
 export const getArticles = createAsyncThunk(
   "environment/getArticles",
