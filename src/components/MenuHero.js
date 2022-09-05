@@ -8,8 +8,7 @@ const MenuHero = () => {
   const [mainSlide, setMainSlide] = useState();
 
   useEffect(() => {
-    const temp = menuSlides.find((item) => item.attributes.type === "összes");
-    setMainSlide(temp);
+    setMainSlide(menuSlides[0]);
   }, [menuSlides]);
 
   const changeSlide = (type) => {

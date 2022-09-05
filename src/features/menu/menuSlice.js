@@ -64,8 +64,20 @@ const menuSlice = createSlice({
       state.isLoading = true;
     },
     [getMenuSlides.fulfilled]: (state, action) => {
+      const temp = action.payload.find((item) => {
+        if (item.attributes.type === "összes") return item;
+        return;
+      });
+
+      const tempArray = action.payload.filter((item) => {
+        if (temp) return item.attributes.type !== "összes";
+        return item;
+      });
+
+      if (temp) tempArray.unshift(temp);
+
       state.isLoading = false;
-      state.menuSlides = action.payload;
+      state.menuSlides = tempArray;
     },
     [getMenuSlides.rejected]: (state) => {
       state.isLoading = false;
