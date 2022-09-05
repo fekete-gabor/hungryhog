@@ -3,6 +3,7 @@ import {
   Hero,
   Environment,
   Slogan,
+  Menu,
   ContactUs,
   ContactsForm,
   GoogleMaps,
@@ -14,6 +15,7 @@ const HomePage = () => {
       <Hero />
       <Environment />
       <Slogan />
+      <Menu />
       <ContactUs />
       <ContactsForm />
       <GoogleMaps />

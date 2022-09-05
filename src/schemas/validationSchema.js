@@ -1,9 +1,9 @@
 import * as yup from "yup";
 
 const validationSchema = yup.object().shape({
-  name: yup.string().required("Kötelező mező!"),
-  email: yup.string().email("Érvénytelen email cím").required("Kötelező mező!"),
-  message: yup.string().required("Kötelező mező!"),
+  name: yup.string().required(),
+  email: yup.string().email().required(),
+  message: yup.string().required(),
 });
 
 export default validationSchema;

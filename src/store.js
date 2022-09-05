@@ -3,6 +3,7 @@ import sidebarReducer from "./features/sidebar/sidebarSlice";
 import heroReducer from "./features/hero/heroSlice";
 import environmentReducer from "./features/environment/environmentSlice";
 import contactsReducer from "./features/contacts/contactsSlice";
+import menuReducer from "./features/menu/menuSlice";
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     sidebar: sidebarReducer,
     environment: environmentReducer,
     contacts: contactsReducer,
+    menu: menuReducer,
   },
 });
 

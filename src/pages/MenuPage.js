@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import { MenuHero } from "../components";
 
 const MenuPage = () => {
   return (
     <Wrapper>
-      <h2>MenuPage</h2>;
+      <MenuHero />
     </Wrapper>
   );
 };

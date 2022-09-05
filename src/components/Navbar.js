@@ -40,7 +40,8 @@ const Navbar = () => {
 
     if (contacts) {
       gsap.to(".contacts-header", {
-        delay: 0.5,
+        duration: 0.25,
+        delay: 1,
         autoAlpha: 1,
         y: "0",
       });

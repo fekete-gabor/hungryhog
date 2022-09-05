@@ -7,21 +7,23 @@ const OpeningHours = () => {
 
   useEffect(() => {
     const btn = document.querySelector(".menu-btn");
-    const target = btn.children[0];
-    const tl = gsap.timeline({ paused: true });
-    const anim = tl.fromTo(
-      target,
-      { width: "1px" },
-      { duration: 0.75, width: "120%" }
-    );
+    if (btn) {
+      const target = btn.children[0];
+      const tl = gsap.timeline({ paused: true });
+      const anim = tl.fromTo(
+        target,
+        { width: "1px" },
+        { duration: 0.75, width: "120%" }
+      );
 
-    btn.addEventListener("mouseover", () => {
-      anim.play();
-    });
+      btn.addEventListener("mouseover", () => {
+        anim.play();
+      });
 
-    btn.addEventListener("mouseleave", () => {
-      anim.reverse();
-    });
+      btn.addEventListener("mouseleave", () => {
+        anim.reverse();
+      });
+    }
   }, []);
 
   return openingHours.map((item) => {
