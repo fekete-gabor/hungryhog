@@ -5,16 +5,18 @@ const initialState = {
   isLoading: "false",
   menuSlides: [],
   menuItems: [],
+  filteredMenuItems: [],
   index: 0,
 };
 
-const url = process.env.REACT_APP_MENU_ITEMS;
+const menuItemsURL = process.env.REACT_APP_MENU_ITEMS;
+const menuSlidessURL = process.env.REACT_APP_MENU_SLIDES;
 
 export const getMenuItems = createAsyncThunk(
   "menu/getMenuItems",
   async (_, thunkAPI) => {
     try {
-      const response = await axios(url);
+      const response = await axios(menuItemsURL);
       const data = await response.data.data;
       return data;
     } catch (error) {
@@ -27,9 +29,7 @@ export const getMenuSlides = createAsyncThunk(
   "menu/getMenuSlides",
   async (_, thunkAPI) => {
     try {
-      const response = await axios(
-        "https://hungryhog.up.railway.app/api/menu-slides?populate=*"
-      );
+      const response = await axios(menuSlidessURL);
       const data = await response.data.data;
       return data;
     } catch (error) {
@@ -43,7 +43,20 @@ const menuSlice = createSlice({
   initialState,
   reducers: {
     setIndex: (state, action) => {
-      return { ...state, index: action.payload };
+      state.index = action.payload;
+    },
+    filterMenuItems: (state, action) => {
+      let tempArray;
+      const btn = action.payload;
+
+      if (btn === "összes") {
+        tempArray = state.menuItems;
+      } else {
+        tempArray = state.menuItems.filter(
+          (item) => item.attributes.type === btn
+        );
+      }
+      state.filteredMenuItems = tempArray;
     },
   },
   extraReducers: {
@@ -54,6 +67,7 @@ const menuSlice = createSlice({
     [getMenuItems.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.menuItems = action.payload;
+      state.filteredMenuItems = action.payload;
     },
     [getMenuItems.rejected]: (state) => {
       state.isLoading = false;
@@ -66,7 +80,7 @@ const menuSlice = createSlice({
     [getMenuSlides.fulfilled]: (state, action) => {
       const temp = action.payload.find((item) => {
         if (item.attributes.type === "összes") return item;
-        return;
+        return null;
       });
 
       const tempArray = action.payload.filter((item) => {
@@ -85,5 +99,5 @@ const menuSlice = createSlice({
   },
 });
 
-export const { setIndex } = menuSlice.actions;
+export const { setIndex, filterMenuItems } = menuSlice.actions;
 export default menuSlice.reducer;

@@ -18,7 +18,7 @@ import HeroSlides from "./HeroSlides";
 import Environment from "./Environment";
 import EnvironmentArticle from "./EnvironmentArticle";
 import Slogan from "./Slogan";
-import Menu from "./Menu";
+import HomePageMenu from "./HomePageMenu";
 import ContactUs from "./ContactUs";
 import OpeningHours from "./OpeningHours";
 import Contacts from "./Contacts";
@@ -35,6 +35,7 @@ import MenuHero from "./MenuHero";
 import MenuHeroTitle from "./MenuHeroTitle";
 import MenuHeroSlides from "./MenuHeroSlides";
 import MenuHeroBtns from "./MenuHeroBtns";
+import MenuItems from "./MenuItems";
 
 export {
   Navbar,
@@ -48,7 +49,7 @@ export {
   Environment,
   EnvironmentArticle,
   Slogan,
-  Menu,
+  HomePageMenu,
   ContactUs,
   OpeningHours,
   Contacts,
@@ -60,4 +61,5 @@ export {
   MenuHeroTitle,
   MenuHeroSlides,
   MenuHeroBtns,
+  MenuItems,
 };

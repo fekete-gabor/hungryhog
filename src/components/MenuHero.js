@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { MenuHeroTitle, MenuHeroSlides, MenuHeroBtns } from "./index";
 
 const MenuHero = () => {
-  const { menuSlides } = useSelector((store) => store.menu);
+  const { menuItems, menuSlides } = useSelector((store) => store.menu);
   const [mainSlide, setMainSlide] = useState();
 
   useEffect(() => {
@@ -31,7 +31,11 @@ const MenuHero = () => {
           <MenuHeroTitle mainSlide={mainSlide} />
           <MenuHeroSlides mainSlide={mainSlide} />
         </div>
-        <MenuHeroBtns menuSlides={menuSlides} changeSlide={changeSlide} />
+        <MenuHeroBtns
+          menuItems={menuItems}
+          menuSlides={menuSlides}
+          changeSlide={changeSlide}
+        />
         <div className="gradient"></div>
       </Wrapper>
     );
