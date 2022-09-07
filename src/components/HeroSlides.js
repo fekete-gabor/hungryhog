@@ -28,20 +28,20 @@ const HeroSlides = () => {
       gsap.utils.toArray(".slide").forEach((slide, i) => {
         const slideWidth = slide.getBoundingClientRect().width;
         gsap.set(slide, {
-          x: (i * slideWidth) / 1.323,
+          x: (i * slideWidth) / 1.3,
           clipPath: "polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)",
         });
 
         const totalWidth = slideWidth * slides.length;
         const dirFromRight = "-=" + totalWidth;
-        const mod = gsap.utils.wrap(-500, totalWidth / 1.585);
+        const mod = gsap.utils.wrap(-500, totalWidth / 1.519);
 
         gsap.timeline().to(slide, {
           x: dirFromRight,
           modifiers: {
             x: (x) => mod(parseFloat(x)) + "px",
           },
-          duration: 150,
+          duration: 100,
           ease: "none",
           repeat: -1,
         });

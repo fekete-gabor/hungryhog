@@ -36,6 +36,7 @@ import MenuHeroTitle from "./MenuHeroTitle";
 import MenuHeroSlides from "./MenuHeroSlides";
 import MenuHeroBtns from "./MenuHeroBtns";
 import MenuItems from "./MenuItems";
+import MenuItemsList from "./MenuItemsList";
 
 export {
   Navbar,
@@ -62,4 +63,5 @@ export {
   MenuHeroSlides,
   MenuHeroBtns,
   MenuItems,
+  MenuItemsList,
 };

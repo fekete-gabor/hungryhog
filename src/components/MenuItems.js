@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Test from "./Test";
+import { MenuItemsList } from "./index";
 import { getUniqueValues } from "../utils/helpers";
 import { useSelector } from "react-redux";
 import { gsap } from "gsap/dist/gsap";
@@ -17,7 +17,7 @@ const MenuItems = () => {
           return (
             <div key={i}>
               <h1>{title}</h1>
-              <Test
+              <MenuItemsList
                 title={title}
                 filteredMenuItems={filteredMenuItems}
                 key={i}

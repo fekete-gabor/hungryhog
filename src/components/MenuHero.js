@@ -1,45 +1,21 @@
-import { useState, useEffect } from "react";
-import { useSelector } from "react-redux/es/exports";
 import styled from "styled-components";
 import { MenuHeroTitle, MenuHeroSlides, MenuHeroBtns } from "./index";
+import { useSelector } from "react-redux";
 
 const MenuHero = () => {
-  const { menuItems, menuSlides } = useSelector((store) => store.menu);
-  const [mainSlide, setMainSlide] = useState();
+  const { menuItems, menuSlides, mainSlide } = useSelector(
+    (store) => store.menu
+  );
 
-  useEffect(() => {
-    setMainSlide(menuSlides[0]);
-  }, [menuSlides]);
-
-  const changeSlide = (type) => {
-    const temp = menuSlides.find((item) => type === item.attributes.type);
-    setMainSlide(temp);
-  };
-
-  if (!mainSlide) {
-    return (
-      <Wrapper>
-        <h2>loading....</h2>;
-      </Wrapper>
-    );
-  }
-
-  if (mainSlide) {
-    return (
-      <Wrapper>
-        <div className="menu-banner">
-          <MenuHeroTitle mainSlide={mainSlide} />
-          <MenuHeroSlides mainSlide={mainSlide} />
-        </div>
-        <MenuHeroBtns
-          menuItems={menuItems}
-          menuSlides={menuSlides}
-          changeSlide={changeSlide}
-        />
-        <div className="gradient"></div>
-      </Wrapper>
-    );
-  }
+  return (
+    <Wrapper>
+      <div className="menu-banner">
+        <MenuHeroTitle mainSlide={mainSlide} />
+        <MenuHeroSlides mainSlide={mainSlide} />
+      </div>
+      <MenuHeroBtns menuItems={menuItems} menuSlides={menuSlides} />
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.div`

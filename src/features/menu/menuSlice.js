@@ -3,8 +3,9 @@ import axios from "axios";
 
 const initialState = {
   isLoading: "false",
-  menuSlides: [],
   menuItems: [],
+  menuSlides: [],
+  mainSlide: [],
   filteredMenuItems: [],
   index: 0,
 };
@@ -49,7 +50,7 @@ const menuSlice = createSlice({
       let tempArray;
       const btn = action.payload;
 
-      if (btn === "összes") {
+      if (btn === "összes" || btn === undefined) {
         tempArray = state.menuItems;
       } else {
         tempArray = state.menuItems.filter(
@@ -57,6 +58,13 @@ const menuSlice = createSlice({
         );
       }
       state.filteredMenuItems = tempArray;
+    },
+    changeMainSlide: (state, action) => {
+      const temp = state.menuSlides.find(
+        (item) => action.payload === item.attributes.type
+      );
+
+      state.mainSlide = temp;
     },
   },
   extraReducers: {
@@ -83,15 +91,20 @@ const menuSlice = createSlice({
         return null;
       });
 
-      const tempArray = action.payload.filter((item) => {
+      let tempArray = action.payload.filter((item) => {
         if (temp) return item.attributes.type !== "összes";
         return item;
       });
+
+      tempArray.sort((a, b) =>
+        a.attributes.type.localeCompare(b.attributes.type)
+      );
 
       if (temp) tempArray.unshift(temp);
 
       state.isLoading = false;
       state.menuSlides = tempArray;
+      state.mainSlide = temp;
     },
     [getMenuSlides.rejected]: (state) => {
       state.isLoading = false;
@@ -99,5 +112,5 @@ const menuSlice = createSlice({
   },
 });
 
-export const { setIndex, filterMenuItems } = menuSlice.actions;
+export const { setIndex, filterMenuItems, changeMainSlide } = menuSlice.actions;
 export default menuSlice.reducer;

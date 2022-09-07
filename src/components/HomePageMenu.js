@@ -1,5 +1,10 @@
 import { useEffect } from "react";
-import { filterMenuItems } from "../features/menu/menuSlice";
+import bg from "../assets/slide_all.jpg";
+import {
+  setIndex,
+  filterMenuItems,
+  changeMainSlide,
+} from "../features/menu/menuSlice";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux/es/exports";
@@ -7,6 +12,7 @@ import { gsap } from "gsap/dist/gsap";
 
 const HomePageMenu = () => {
   const { menuSlides } = useSelector((store) => store.menu);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -35,25 +41,29 @@ const HomePageMenu = () => {
     });
   }, [menuSlides]);
 
+  const handleChange = (type, i) => {
+    dispatch(setIndex(i));
+    dispatch(filterMenuItems(type));
+    dispatch(changeMainSlide(type));
+  };
+
   return (
     <Wrapper>
       {menuSlides.map((item, i) => {
-        const { type } = item.attributes;
-        const img = item.attributes.img.data.attributes.url;
+        const type = item?.attributes?.type;
+        const img = item?.attributes?.img?.data?.attributes?.url;
 
-        return (
-          <Link
-            to="/menu"
-            key={i}
-            onClick={() => dispatch(filterMenuItems(type))}
-          >
-            <div className="menu-container">
-              <h2>{type}</h2>
-              <img src={img} alt={type} />
-              <div className="gradient"></div>
-            </div>
-          </Link>
-        );
+        if (type !== "összes") {
+          return (
+            <Link to="/menu" key={i} onClick={() => handleChange(type, i)}>
+              <div className="menu-container">
+                <h2>{type}</h2>
+                <img src={img || bg} alt={type} />
+                <div className="gradient"></div>
+              </div>
+            </Link>
+          );
+        }
       })}
     </Wrapper>
   );

@@ -1,15 +1,14 @@
 import { useEffect } from "react";
+import { changeMainSlide } from "../features/menu/menuSlice";
 import { setIndex, filterMenuItems } from "../features/menu/menuSlice";
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import { getUniqueValues } from "../utils/helpers";
 import { gsap } from "gsap/dist/gsap";
 
-const MenuHeroBtns = ({ menuItems, menuSlides, changeSlide }) => {
+const MenuHeroBtns = ({ menuItems }) => {
   const { index } = useSelector((store) => store.menu);
 
   const dispatch = useDispatch();
-
-  const result = menuSlides.find((item) => item.attributes.type === "összes");
 
   const menuBtns = getUniqueValues(menuItems, "type", true);
 
@@ -35,7 +34,7 @@ const MenuHeroBtns = ({ menuItems, menuSlides, changeSlide }) => {
   const handleChange = (btn, i) => {
     dispatch(setIndex(i));
     dispatch(filterMenuItems(btn));
-    changeSlide(btn);
+    dispatch(changeMainSlide(btn));
   };
 
   return (
