@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { changeMainSlide } from "../features/menu/menuSlice";
-import { setIndex, filterMenuItems } from "../features/menu/menuSlice";
+import { setMenuBtnIndex, filterMenuItems } from "../features/menu/menuSlice";
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import { getUniqueValues } from "../utils/helpers";
 import { gsap } from "gsap/dist/gsap";
 
 const MenuHeroBtns = ({ menuItems }) => {
-  const { index } = useSelector((store) => store.menu);
+  const { menuBtnIndex } = useSelector((store) => store.menu);
 
   const dispatch = useDispatch();
 
@@ -23,16 +23,16 @@ const MenuHeroBtns = ({ menuItems }) => {
       const tl = gsap.timeline();
       const underline = btn.nextElementSibling;
 
-      if (i === index) {
+      if (i === menuBtnIndex) {
         tl.to(underline, { width: "100%" });
       } else {
         tl.to(underline, { width: "0" });
       }
     });
-  }, [menuBtns, index]);
+  }, [menuBtns, menuBtnIndex]);
 
   const handleChange = (btn, i) => {
-    dispatch(setIndex(i));
+    dispatch(setMenuBtnIndex(i));
     dispatch(filterMenuItems(btn));
     dispatch(changeMainSlide(btn));
   };

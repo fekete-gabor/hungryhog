@@ -4,7 +4,7 @@ const MenuItemsList = ({ title, filteredMenuItems }) => {
 
     if (title === type) {
       return (
-        <div key={i}>
+        <div key={i} className="q">
           <p>{item.attributes.title}</p>
           <p>{item.attributes.desc}</p>
           <img
@@ -13,6 +13,8 @@ const MenuItemsList = ({ title, filteredMenuItems }) => {
           />
         </div>
       );
+    } else {
+      return null;
     }
   });
 };

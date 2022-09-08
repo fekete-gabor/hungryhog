@@ -37,14 +37,15 @@ const Sidebar = () => {
 const Wrapper = styled.section`
   width: 100%;
   height: 100vh;
+  overflow: scroll;
   display: grid;
   text-align: center;
   align-items: center;
-  padding: 0rem 2rem;
+  padding: 0rem 2rem -68px;
   background: var(--primary-clr-4);
   border: var(--border);
   position: fixed;
-  top: 0;
+  top: 68px;
   z-index: 998;
 
   .link {

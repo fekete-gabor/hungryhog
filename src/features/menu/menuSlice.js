@@ -7,7 +7,7 @@ const initialState = {
   menuSlides: [],
   mainSlide: [],
   filteredMenuItems: [],
-  index: 0,
+  menuBtnIndex: 0,
 };
 
 const menuItemsURL = process.env.REACT_APP_MENU_ITEMS;
@@ -43,8 +43,8 @@ const menuSlice = createSlice({
   name: "menu",
   initialState,
   reducers: {
-    setIndex: (state, action) => {
-      state.index = action.payload;
+    setMenuBtnIndex: (state, action) => {
+      state.menuBtnIndex = action.payload;
     },
     filterMenuItems: (state, action) => {
       let tempArray;
@@ -112,5 +112,6 @@ const menuSlice = createSlice({
   },
 });
 
-export const { setIndex, filterMenuItems, changeMainSlide } = menuSlice.actions;
+export const { setMenuBtnIndex, filterMenuItems, changeMainSlide } =
+  menuSlice.actions;
 export default menuSlice.reducer;

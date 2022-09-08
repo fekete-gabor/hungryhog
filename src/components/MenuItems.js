@@ -15,7 +15,12 @@ const MenuItems = () => {
       <div>
         {titles.map((title, i) => {
           return (
-            <div key={i}>
+            <div
+              key={i}
+              data-index={i}
+              id={title}
+              className="menu-item-containers"
+            >
               <h1>{title}</h1>
               <MenuItemsList
                 title={title}
@@ -35,6 +40,15 @@ const Wrapper = styled.section`
     width: 400px;
     height: 400px;
     object-fit: cover;
+  }
+
+  .e {
+    background-color: dodgerblue;
+  }
+
+  .q {
+    margin: 2rem;
+    background-color: plum;
   }
 `;
 

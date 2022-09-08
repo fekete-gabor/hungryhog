@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import bg from "../assets/slide_all.jpg";
 
 const MenuHeroSlides = ({ mainSlide }) => {

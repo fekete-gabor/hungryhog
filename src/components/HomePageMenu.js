@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import bg from "../assets/slide_all.jpg";
 import {
-  setIndex,
+  setMenuBtnIndex,
   filterMenuItems,
   changeMainSlide,
 } from "../features/menu/menuSlice";
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import { gsap } from "gsap/dist/gsap";
@@ -42,7 +42,7 @@ const HomePageMenu = () => {
   }, [menuSlides]);
 
   const handleChange = (type, i) => {
-    dispatch(setIndex(i));
+    dispatch(setMenuBtnIndex(i));
     dispatch(filterMenuItems(type));
     dispatch(changeMainSlide(type));
   };
@@ -55,7 +55,11 @@ const HomePageMenu = () => {
 
         if (type !== "összes") {
           return (
-            <Link to="/menu" key={i} onClick={() => handleChange(type, i)}>
+            <Link
+              to={`/menu#${type}`}
+              key={i}
+              onClick={() => handleChange(type, i)}
+            >
               <div className="menu-container">
                 <h2>{type}</h2>
                 <img src={img || bg} alt={type} />
@@ -63,6 +67,8 @@ const HomePageMenu = () => {
               </div>
             </Link>
           );
+        } else {
+          return null;
         }
       })}
     </Wrapper>
