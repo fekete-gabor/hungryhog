@@ -59,6 +59,28 @@ const menuSlice = createSlice({
       }
       state.filteredMenuItems = tempArray;
     },
+    filterByIngredient: (state, action) => {
+      let tempArray;
+      const ingredient = action.payload;
+
+      tempArray = state.menuItems
+        .reduce((foods, ingredient) => {
+          if (ingredient.attributes.ingredients.length > 0) {
+            foods.push(ingredient);
+          }
+          return foods;
+        }, [])
+        .filter((food) => {
+          const temp = food.attributes.ingredients.find((item) => {
+            if (item.ingredients === ingredient) {
+              return item;
+            }
+          });
+
+          return temp;
+        });
+      state.filteredMenuItems = tempArray;
+    },
     changeMainSlide: (state, action) => {
       const temp = state.menuSlides.find(
         (item) => action.payload === item.attributes.type
@@ -112,6 +134,10 @@ const menuSlice = createSlice({
   },
 });
 
-export const { setMenuBtnIndex, filterMenuItems, changeMainSlide } =
-  menuSlice.actions;
+export const {
+  setMenuBtnIndex,
+  filterMenuItems,
+  filterByIngredient,
+  changeMainSlide,
+} = menuSlice.actions;
 export default menuSlice.reducer;

@@ -16,7 +16,7 @@ const MenuSidebar = () => {
   const dots = getUniqueValues(menuItems, "type");
 
   useEffect(() => {
-    const containers = [...document.querySelectorAll(".menu-item-containers")];
+    const containers = [...document.querySelectorAll(".menu-item-container")];
     setMenuContainers(containers);
 
     gsap.config({
@@ -43,19 +43,9 @@ const MenuSidebar = () => {
       const tl = gsap.timeline();
 
       if (i === currentIndex) {
-        tl.to(dot, {
-          background: "#d9483b",
-          borderRadius: "0",
-        }).to(dot, {
-          rotate: "45deg",
-        });
+        tl.to(dot, { background: "#d9483b", rotate: "45deg" });
       } else {
-        tl.to(dot, {
-          background: "#f2a007",
-          borderRadius: "50%",
-        }).to(dot, {
-          rotate: "0",
-        });
+        tl.to(dot, { background: "#f2a007", rotate: "0" });
       }
     });
   }, [dots, currentIndex]);
@@ -75,11 +65,7 @@ const MenuSidebar = () => {
       {dots.map((dot, i) => {
         return (
           <a href={`#${dot}`} key={i}>
-            <div
-              className="dot"
-              data-index={i}
-              onClick={() => setCurrentIndex(i)}
-            ></div>
+            <div className="dot" onClick={() => setCurrentIndex(i)}></div>
           </a>
         );
       })}
@@ -94,8 +80,6 @@ const Wrapper = styled.aside`
   top: 50%;
   right: 0px;
   z-index: 997;
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
 
   .dot {

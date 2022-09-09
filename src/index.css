@@ -60,7 +60,7 @@ body {
 
 html {
   scroll-behavior: smooth;
-  scroll-padding: 70px;
+  scroll-padding: calc(2rem + 10px);
 }
 
 ul {
