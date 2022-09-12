@@ -1,6 +1,11 @@
-import { AiOutlineBars } from "react-icons/ai";
+import {
+  AiOutlineBars,
+  AiOutlineUnorderedList,
+  AiFillCloseCircle,
+} from "react-icons/ai";
 import { CgCloseR } from "react-icons/cg";
 import { BiUpArrowAlt } from "react-icons/bi";
+import { BsGridFill } from "react-icons/bs";
 import {
   FaFacebookSquare,
   FaTwitterSquare,
@@ -27,4 +32,11 @@ export const mediaIcons = icons.map((item) => {
   );
 });
 
-export { AiOutlineBars, CgCloseR, BiUpArrowAlt };
+export {
+  AiOutlineBars,
+  AiOutlineUnorderedList,
+  AiFillCloseCircle,
+  CgCloseR,
+  BiUpArrowAlt,
+  BsGridFill,
+};

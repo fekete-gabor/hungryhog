@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import bg from "../assets/slide_all.jpg";
 import {
   setMenuBtnIndex,
@@ -11,8 +11,8 @@ import { useDispatch, useSelector } from "react-redux/es/exports";
 import { gsap } from "gsap/dist/gsap";
 
 const HomePageMenu = () => {
-  const { menuSlides } = useSelector((store) => store.menu);
-
+  const { menuSlides, menuItems } = useSelector((store) => store.menu);
+  const [slides, setSlides] = useState([]);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -39,40 +39,57 @@ const HomePageMenu = () => {
         anim.reverse();
       });
     });
-  }, [menuSlides]);
+  }, [slides]);
+
+  useEffect(() => {
+    const tempArray = menuSlides.filter((slide) => {
+      const temp = menuItems.find(
+        (item) => item.attributes.type === slide.attributes.type
+      );
+      return temp;
+    });
+    setSlides(tempArray);
+  }, [menuItems]);
 
   const handleChange = (type, i) => {
-    dispatch(setMenuBtnIndex(i));
+    dispatch(setMenuBtnIndex(i + 1));
     dispatch(filterMenuItems(type));
     dispatch(changeMainSlide(type));
   };
 
-  return (
-    <Wrapper>
-      {menuSlides.map((item, i) => {
-        const type = item?.attributes?.type;
-        const img = item?.attributes?.img?.data?.attributes?.url;
+  if (!slides) {
+    return <h2>ayy</h2>;
+  }
 
-        if (type !== "összes") {
-          return (
-            <Link
-              to={`/menu#${type}`}
-              key={i}
-              onClick={() => handleChange(type, i)}
-            >
-              <div className="menu-container">
-                <h2>{type}</h2>
-                <img src={img || bg} alt={type} />
-                <div className="gradient"></div>
-              </div>
-            </Link>
-          );
-        } else {
-          return null;
-        }
-      })}
-    </Wrapper>
-  );
+  if (slides) {
+    return (
+      <Wrapper>
+        {slides.map((item, i) => {
+          const type = item?.attributes?.type;
+          const img = item?.attributes?.img?.data?.attributes?.url;
+          console.log(img);
+
+          if (type !== "összes") {
+            return (
+              <Link
+                to={`/menu#${type}`}
+                key={i}
+                onClick={() => handleChange(type, i)}
+              >
+                <div className="menu-container">
+                  <h2>{type}</h2>
+                  <img src={img || bg} alt={type} />
+                  <div className="gradient"></div>
+                </div>
+              </Link>
+            );
+          } else {
+            return null;
+          }
+        })}
+      </Wrapper>
+    );
+  }
 };
 
 const Wrapper = styled.section`

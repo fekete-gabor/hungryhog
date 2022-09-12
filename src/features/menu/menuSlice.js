@@ -8,6 +8,8 @@ const initialState = {
   mainSlide: [],
   filteredMenuItems: [],
   menuBtnIndex: 0,
+  viewStyle: "list",
+  currentIngredient: [],
 };
 
 const menuItemsURL = process.env.REACT_APP_MENU_ITEMS;
@@ -88,6 +90,19 @@ const menuSlice = createSlice({
 
       state.mainSlide = temp;
     },
+    changeViewStyle: (state, action) => {
+      const style = action.payload;
+
+      state.viewStyle = style;
+    },
+    changeCurrentIngredient: (state, action) => {
+      const ingredient = action.payload;
+      state.currentIngredient = ingredient;
+    },
+    clearCurrentIngredient: (state) => {
+      state.currentIngredient = [];
+      state.filteredMenuItems = state.menuItems;
+    },
   },
   extraReducers: {
     //FETCH ITEMS
@@ -139,5 +154,8 @@ export const {
   filterMenuItems,
   filterByIngredient,
   changeMainSlide,
+  changeViewStyle,
+  changeCurrentIngredient,
+  clearCurrentIngredient,
 } = menuSlice.actions;
 export default menuSlice.reducer;

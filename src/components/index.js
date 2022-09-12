@@ -36,7 +36,10 @@ import MenuHeroTitle from "./MenuHeroTitle";
 import MenuHeroSlides from "./MenuHeroSlides";
 import MenuHeroBtns from "./MenuHeroBtns";
 import MenuItems from "./MenuItems";
+import MenuIngredients from "./MenuIngredients";
+import MenuPrice from "./MenuPrice";
 import MenuItemsList from "./MenuItemsList";
+import MenuItemsListView from "./MenuItemsListView";
 import MenuSidebar from "./MenuSidebar";
 
 export {
@@ -64,6 +67,9 @@ export {
   MenuHeroSlides,
   MenuHeroBtns,
   MenuItems,
+  MenuIngredients,
+  MenuPrice,
   MenuItemsList,
+  MenuItemsListView,
   MenuSidebar,
 };
