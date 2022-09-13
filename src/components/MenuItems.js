@@ -97,6 +97,10 @@ const Wrapper = styled.section`
     }
   }
 
+  .menu-desc {
+    text-transform: capitalize;
+  }
+
   .current {
     color: var(--primary-white);
     background: var(--primary-clr-5);

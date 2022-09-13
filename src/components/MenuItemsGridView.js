@@ -7,7 +7,7 @@ const MenuItemsGridView = ({ title, filteredMenuItems }) => {
 
     const sortedIngredients = [
       ...new Set(ingredients.map((food) => food.ingredients)),
-    ].sort((a, b) => a.localeCompare(b));
+    ].sort((a, b) => a && a.localeCompare(b));
 
     if (title === type) {
       return (
@@ -50,7 +50,7 @@ const Wrapper = styled.section`
   footer {
     min-height: 300px;
     display: grid;
-    grid-template-rows: auto auto auto 1fr;
+    grid-template-rows: auto auto 1fr auto;
     align-items: center;
     h3 {
       text-decoration: underline darkgoldenrod;
@@ -74,7 +74,7 @@ const Wrapper = styled.section`
   .ingredient-container {
     margin: 1rem auto 2rem;
     justify-content: center;
-    align-self: flex-end;
+    align-self: flex-start;
   }
 
   header {
@@ -83,6 +83,7 @@ const Wrapper = styled.section`
     margin-bottom: 1rem;
     img {
       width: 100%;
+      max-width: 700px;
       height: 100%;
       object-fit: cover;
     }

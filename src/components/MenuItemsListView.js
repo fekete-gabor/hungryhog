@@ -7,7 +7,7 @@ const MenuItemsListView = ({ title, filteredMenuItems }) => {
 
     const sortedIngredients = [
       ...new Set(ingredients.map((food) => food.ingredients)),
-    ].sort((a, b) => a.localeCompare(b));
+    ].sort((a, b) => a && a.localeCompare(b));
 
     if (title === type) {
       return (
