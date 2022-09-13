@@ -5,6 +5,7 @@ const initialState = {
   isLoading: false,
   articles: [],
 };
+
 const url = process.env.REACT_APP_ENVIRONMENT_ARTICLES;
 
 export const getArticles = createAsyncThunk(
