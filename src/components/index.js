@@ -38,7 +38,7 @@ import MenuHeroBtns from "./MenuHeroBtns";
 import MenuItems from "./MenuItems";
 import MenuIngredients from "./MenuIngredients";
 import MenuPrice from "./MenuPrice";
-import MenuItemsList from "./MenuItemsList";
+import MenuItemsGridView from "./MenuItemsGridView";
 import MenuItemsListView from "./MenuItemsListView";
 import MenuSidebar from "./MenuSidebar";
 
@@ -69,7 +69,7 @@ export {
   MenuItems,
   MenuIngredients,
   MenuPrice,
-  MenuItemsList,
+  MenuItemsGridView,
   MenuItemsListView,
   MenuSidebar,
 };

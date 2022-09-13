@@ -42,8 +42,6 @@ const MenuSidebar = () => {
 
   useEffect(() => {
     gsap.utils.toArray(".dot").forEach((dot, i) => {
-      gsap.set(dot, { background: "#f2a007" });
-
       const tl = gsap.timeline();
 
       if (i === currentIndex) {
@@ -86,6 +84,7 @@ const MenuSidebar = () => {
         gsap.to(icon, { color: "#f2a007" });
       }
     });
+    // eslint-disable-next-line
   }, [viewStyle]);
 
   return (

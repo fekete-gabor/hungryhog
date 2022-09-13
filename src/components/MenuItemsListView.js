@@ -5,16 +5,19 @@ const MenuItemsListView = ({ title, filteredMenuItems }) => {
   return filteredMenuItems.map((item, i) => {
     const { type, title: name, desc, price, ingredients } = item.attributes;
 
+    const sortedIngredients = [
+      ...new Set(ingredients.map((food) => food.ingredients)),
+    ].sort((a, b) => a.localeCompare(b));
+
     if (title === type) {
       return (
         <Wrapper key={i}>
           <article className="menu-article-list">
             <header>
-              <h3>{`${i + 1}. ${name}:`}</h3>
+              <h3>{`${i + 1}. ${name}`}</h3>
               <div className="ingredient-container">
-                {ingredients.length > 0 && <p>hozzávalók - </p>}
-                {ingredients.map((item) => {
-                  return <MenuIngredients key={item.id} item={item} />;
+                {sortedIngredients.map((item, i) => {
+                  return <MenuIngredients key={i} item={item} />;
                 })}
               </div>
               <p className="menu-desc">{desc}</p>
@@ -52,18 +55,20 @@ const Wrapper = styled.section`
   }
 
   .price-container {
-    width: fit-content;
+    width: 100%;
     height: fit-content;
     display: flex;
+    justify-content: center;
     margin: 0 auto;
     text-align: center;
     gap: 0.5rem;
     p {
+      width: fit-content;
       border: none;
       border-radius: 25px;
       background: goldenrod;
       padding: 1rem;
-      margin: 0.25rem;
+      margin: 0.25rem auto;
       font-size: 0.9rem;
       color: var(--primary-white);
       box-shadow: 3px 3px 10px #222;

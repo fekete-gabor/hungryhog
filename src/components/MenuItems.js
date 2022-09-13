@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { MenuItemsList, MenuItemsListView } from "./index";
+import { MenuItemsListView, MenuItemsGridView } from "./index";
 import { getUniqueValues } from "../utils/helpers";
 import { useSelector } from "react-redux";
 import { gsap } from "gsap/dist/gsap";
@@ -36,7 +36,7 @@ const MenuItems = () => {
                 </div>
               ) : (
                 <div className="menu-item-desc-grid">
-                  <MenuItemsList
+                  <MenuItemsGridView
                     title={title}
                     filteredMenuItems={filteredMenuItems}
                     key={i}
@@ -56,38 +56,61 @@ const Wrapper = styled.section`
   margin-bottom: 4rem;
 
   .title-container {
-    padding-top: 2rem;
-    color: var(--primary-black);
+    h2 {
+      color: var(--primary-black);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
   }
 
   .title-border {
     max-width: 40%;
-    margin: 0rem auto;
+    margin: 3rem auto 0;
     border-top: dotted 2px var(--primary-clr-5);
   }
 
+  .ingredient-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem auto;
+    gap: 1rem;
+    font-family: var(--ff-secondary);
+    letter-spacing: 2px;
+  }
+
   a,
+  button,
   .clear-btn {
     cursor: pointer;
     background: none;
     border: none;
     text-transform: capitalize;
-    margin: 1rem;
     transition: var(--transition);
     font-size: 1.2rem;
+    transform: translate(0px, 0px);
+    padding: 0.25rem 0.5rem;
     &:hover {
-      color: var(--primary-clr-5);
+      transform: translate(-4px, -4px);
+      color: var(--primary-white);
+      background: dodgerblue;
+      border-radius: 7.5px;
     }
   }
 
   .current {
-    color: var(--primary-clr-5);
+    color: var(--primary-white);
+    background: var(--primary-clr-5);
+    border-radius: 7.5px;
+    padding: 0.25rem 0.5rem 0;
+    &:hover {
+      background: red;
+    }
   }
 
   svg {
     transform: translate(3px, 3px);
     font-size: 1.2rem;
-    color: var(--primary-clr-5);
+    color: var(--primary-white);
   }
 
   @media screen and (min-width: 350px) {
@@ -115,6 +138,7 @@ const Wrapper = styled.section`
   // *************
 
   .menu-item-desc-grid {
+    width: 100vw;
     display: grid;
     margin: 0 auto;
     gap: 3rem;
@@ -126,9 +150,9 @@ const Wrapper = styled.section`
     }
   }
 
-  @media screen and (min-width: 450px) {
+  @media screen and (min-width: 550px) {
     .menu-item-desc-grid {
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(475px, 1fr));
     }
   }
 

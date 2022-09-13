@@ -51,7 +51,7 @@ const menuSlice = createSlice({
     filterMenuItems: (state, action) => {
       let tempArray;
       const btn = action.payload;
-
+      console.log(btn);
       if (btn === "összes" || btn === undefined) {
         tempArray = state.menuItems;
       } else {
@@ -76,6 +76,8 @@ const menuSlice = createSlice({
           const temp = food.attributes.ingredients.find((item) => {
             if (item.ingredients === ingredient) {
               return item;
+            } else {
+              return null;
             }
           });
 
@@ -128,14 +130,12 @@ const menuSlice = createSlice({
         return null;
       });
 
-      let tempArray = action.payload.filter((item) => {
-        if (temp) return item.attributes.type !== "összes";
-        return item;
-      });
-
-      tempArray.sort((a, b) =>
-        a.attributes.type.localeCompare(b.attributes.type)
-      );
+      let tempArray = action.payload
+        .filter((item) => {
+          if (temp) return item.attributes.type !== "összes";
+          return item;
+        })
+        .sort((a, b) => a.attributes.type.localeCompare(b.attributes.type));
 
       if (temp) tempArray.unshift(temp);
 

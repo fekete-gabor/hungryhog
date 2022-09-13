@@ -1,7 +1,7 @@
 import {
   AiOutlineBars,
   AiOutlineUnorderedList,
-  AiFillCloseCircle,
+  AiOutlineClose,
 } from "react-icons/ai";
 import { CgCloseR } from "react-icons/cg";
 import { BiUpArrowAlt } from "react-icons/bi";
@@ -35,7 +35,7 @@ export const mediaIcons = icons.map((item) => {
 export {
   AiOutlineBars,
   AiOutlineUnorderedList,
-  AiFillCloseCircle,
+  AiOutlineClose,
   CgCloseR,
   BiUpArrowAlt,
   BsGridFill,

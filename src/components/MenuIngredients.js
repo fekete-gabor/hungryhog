@@ -1,4 +1,4 @@
-import { AiFillCloseCircle } from "../utils/icons";
+import { AiOutlineClose } from "../utils/icons";
 import { HashLink } from "react-router-hash-link";
 import {
   filterByIngredient,
@@ -17,24 +17,22 @@ const MenuIngredients = ({ item }) => {
     dispatch(changeCurrentIngredient(ingredients));
   };
 
-  const { ingredients } = item;
-
-  return currentIngredient === ingredients ? (
+  return currentIngredient === item ? (
     <div>
-      <a
-        href="#menu"
+      <HashLink
+        to="#menu"
         className="menu-item-btn current"
         onClick={() => dispatch(clearCurrentIngredient())}
       >
-        {ingredients}
-        <AiFillCloseCircle />
-      </a>
+        {item}
+        <AiOutlineClose />
+      </HashLink>
     </div>
   ) : (
-    <div className="">
-      <a className="menu-item-btn" onClick={() => handleChange(ingredients)}>
-        {ingredients}
-      </a>
+    <div>
+      <button className="menu-item-btn" onClick={() => handleChange(item)}>
+        {item}
+      </button>
     </div>
   );
 };

@@ -1,8 +1,22 @@
 import styled from "styled-components";
+import {
+  changeMainSlide,
+  setMenuBtnIndex,
+  filterMenuItems,
+} from "../features/menu/menuSlice";
+import { useDispatch } from "react-redux";
 import { Contacts, OpeningHours } from "./index";
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 
 const ContactUs = () => {
+  const dispatch = useDispatch();
+
+  const handleChange = () => {
+    dispatch(setMenuBtnIndex(0));
+    dispatch(filterMenuItems());
+    dispatch(changeMainSlide("összes"));
+  };
+
   return (
     <Wrapper>
       <div className="contacts-container">
@@ -12,7 +26,7 @@ const ContactUs = () => {
       <div className="opening-hours-container">
         <h2>nyitvatartás</h2>
         <OpeningHours />
-        <Link to="/menu">
+        <Link to="/menu#menu" onClick={() => handleChange()}>
           <button className="menu-btn btn">
             megnézem az étlapot<span></span>
           </button>

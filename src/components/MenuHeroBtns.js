@@ -1,6 +1,9 @@
 import { useEffect } from "react";
-import { changeMainSlide } from "../features/menu/menuSlice";
-import { setMenuBtnIndex, filterMenuItems } from "../features/menu/menuSlice";
+import {
+  changeMainSlide,
+  setMenuBtnIndex,
+  filterMenuItems,
+} from "../features/menu/menuSlice";
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import { getUniqueValues } from "../utils/helpers";
 import { gsap } from "gsap/dist/gsap";

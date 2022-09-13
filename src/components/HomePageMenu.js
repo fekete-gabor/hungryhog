@@ -49,6 +49,7 @@ const HomePageMenu = () => {
       return temp;
     });
     setSlides(tempArray);
+    // eslint-disable-next-line
   }, [menuItems]);
 
   const handleChange = (type, i) => {
@@ -67,7 +68,6 @@ const HomePageMenu = () => {
         {slides.map((item, i) => {
           const type = item?.attributes?.type;
           const img = item?.attributes?.img?.data?.attributes?.url;
-          console.log(img);
 
           if (type !== "összes") {
             return (
@@ -112,6 +112,7 @@ const Wrapper = styled.section`
     left: 50%;
     transform: translate(-50%, -50%);
     color: var(--primary-white);
+    letter-spacing: 5px;
     z-index: 2;
   }
 

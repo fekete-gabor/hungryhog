@@ -1,9 +1,13 @@
 import styled from "styled-components";
 import { MenuIngredients, MenuPrice } from "./index";
 
-const MenuItemsList = ({ title, filteredMenuItems }) => {
+const MenuItemsGridView = ({ title, filteredMenuItems }) => {
   return filteredMenuItems.map((item, i) => {
     const { type, title: name, desc, price, ingredients } = item.attributes;
+
+    const sortedIngredients = [
+      ...new Set(ingredients.map((food) => food.ingredients)),
+    ].sort((a, b) => a.localeCompare(b));
 
     if (title === type) {
       return (
@@ -22,12 +26,12 @@ const MenuItemsList = ({ title, filteredMenuItems }) => {
                   return <MenuPrice key={value.id} value={value} />;
                 })}
               </div>
-              <p className="menu-desc">{desc}</p>
               <div className="ingredient-container">
-                {ingredients.map((item) => {
-                  return <MenuIngredients key={item.id} item={item} />;
+                {sortedIngredients.map((item, i) => {
+                  return <MenuIngredients key={i} item={item} />;
                 })}
               </div>
+              <p className="menu-desc">{desc}</p>
             </footer>
           </article>
         </Wrapper>
@@ -44,10 +48,10 @@ const Wrapper = styled.section`
   }
 
   footer {
+    min-height: 300px;
     display: grid;
     grid-template-rows: auto auto auto 1fr;
     align-items: center;
-
     h3 {
       text-decoration: underline darkgoldenrod;
     }
@@ -68,16 +72,9 @@ const Wrapper = styled.section`
   }
 
   .ingredient-container {
-    margin: 1rem auto 0;
+    margin: 1rem auto 2rem;
+    justify-content: center;
     align-self: flex-end;
-  }
-
-  .menu-item-btn {
-    margin: 1rem;
-    border-bottom: solid 2px darkgoldenrod;
-    &:hover {
-      color: var(--primary-clr-5);
-    }
   }
 
   header {
@@ -96,26 +93,10 @@ const Wrapper = styled.section`
       padding: 3rem 2rem;
     }
 
-    .menu-item-desc {
-      width: 85vw;
-    }
-
     footer {
-      padding: 1rem;
-    }
-  }
-
-  @media screen and (min-width: 450px) {
-    .menu-item-desc {
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    }
-  }
-
-  @media screen and (min-width: 750px) {
-    .menu-item-desc {
-      padding: 0 5rem;
+      padding: 1rem 0;
     }
   }
 `;
 
-export default MenuItemsList;
+export default MenuItemsGridView;
