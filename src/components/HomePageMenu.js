@@ -50,7 +50,7 @@ const HomePageMenu = () => {
     });
     setSlides(tempArray);
     // eslint-disable-next-line
-  }, [menuSlides, menuItems]);
+  }, [menuItems]);
 
   const handleChange = (type, i) => {
     dispatch(setMenuBtnIndex(i + 1));
@@ -65,6 +65,7 @@ const HomePageMenu = () => {
   return (
     <Wrapper>
       {slides.map((item, i) => {
+        console.log(item);
         const type = item?.attributes?.type;
         const img = item?.attributes?.img?.data?.attributes?.url;
 
