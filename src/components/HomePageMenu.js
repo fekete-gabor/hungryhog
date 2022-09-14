@@ -49,8 +49,9 @@ const HomePageMenu = () => {
       return temp;
     });
     setSlides(tempArray);
+    console.log(slides);
     // eslint-disable-next-line
-  }, [slides, menuItems]);
+  }, [menuItems]);
 
   const handleChange = (type, i) => {
     dispatch(setMenuBtnIndex(i + 1));
