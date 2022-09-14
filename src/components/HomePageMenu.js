@@ -50,7 +50,7 @@ const HomePageMenu = () => {
     });
     setSlides(tempArray);
     // eslint-disable-next-line
-  }, [menuItems]);
+  }, [slides, menuItems]);
 
   const handleChange = (type, i) => {
     dispatch(setMenuBtnIndex(i + 1));
