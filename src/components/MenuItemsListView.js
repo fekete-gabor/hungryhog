@@ -54,11 +54,17 @@ const Wrapper = styled.section`
     margin-bottom: 1rem;
   }
 
+  a,
+  button,
+  .clear-btn {
+    text-align: left;
+  }
+
   .price-container {
     width: 100%;
     height: fit-content;
     display: flex;
-    justify-content: center;
+
     margin: 0 auto;
     text-align: center;
     gap: 0.5rem;
@@ -68,7 +74,6 @@ const Wrapper = styled.section`
       border-radius: 25px;
       background: goldenrod;
       padding: 1rem;
-      margin: 0.25rem auto;
       font-size: 0.9rem;
       color: var(--primary-white);
       box-shadow: 3px 3px 10px #222;
@@ -83,6 +88,7 @@ const Wrapper = styled.section`
     .price-container {
       margin: 0;
       flex-direction: column;
+      justify-content: center;
       p {
         font-size: 1.1rem;
       }
@@ -94,6 +100,12 @@ const Wrapper = styled.section`
       display: grid;
       grid-template-columns: 85% 15%;
       align-items: center;
+    }
+
+    .price-container {
+      p {
+        margin: 0.25rem auto;
+      }
     }
   }
 `;

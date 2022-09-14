@@ -84,6 +84,7 @@ const Wrapper = styled.section`
     cursor: pointer;
     background: none;
     border: none;
+    color: var(--primary-black);
     text-transform: capitalize;
     transition: var(--transition);
     font-size: 1.2rem;

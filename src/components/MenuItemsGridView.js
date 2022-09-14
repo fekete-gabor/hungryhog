@@ -75,6 +75,7 @@ const Wrapper = styled.section`
     margin: 1rem auto 2rem;
     justify-content: center;
     align-self: flex-start;
+    /* text-align: center; */
   }
 
   header {

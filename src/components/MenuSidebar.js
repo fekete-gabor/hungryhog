@@ -57,9 +57,9 @@ const MenuSidebar = () => {
     const tl = gsap.timeline();
 
     if (menuBtnIndex === 0 && mediaQuery) {
-      tl.to([".dot-container", ".line"], { duration: 0.5, x: "0" });
+      tl.to(".dot-container", { duration: 0.5, x: "0" });
     } else {
-      tl.to([".dot-container", ".line"], { duration: 0.5, x: "200%" });
+      tl.to(".dot-container", { duration: 0.5, x: "200%" });
     }
   }, [menuBtnIndex, mediaQuery]);
 
@@ -96,7 +96,6 @@ const MenuSidebar = () => {
         />
         <BsGridFill className="menu-sidebar-icon" data-view_style="grid" />
       </div>
-      <div className="line"></div>
       <div className="dot-container">
         {dots.map((dot, i) => {
           return (
@@ -112,7 +111,7 @@ const MenuSidebar = () => {
 
 const Wrapper = styled.aside`
   display: grid;
-  grid-template-rows: repeat(3, fr);
+  grid-template-rows: repeat(2, fr);
   position: fixed;
   top: 50%;
   right: 0px;
@@ -123,6 +122,7 @@ const Wrapper = styled.aside`
     gap: 0.5rem;
     padding: 1rem;
     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+    border-bottom: solid 1.5px var(--primary-clr-5);
 
     svg {
       cursor: pointer;
@@ -132,12 +132,6 @@ const Wrapper = styled.aside`
     }
   }
 
-  .line {
-    width: 100%;
-    height: 2px;
-    background: var(--primary-clr-5);
-  }
-
   .dot-container {
     display: flex;
     flex-direction: column;
@@ -145,6 +139,7 @@ const Wrapper = styled.aside`
     gap: 0.8rem;
     padding: 1rem;
     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+    border-top: solid 1.5px var(--primary-clr-5);
   }
 
   .dot {
