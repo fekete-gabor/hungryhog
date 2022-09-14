@@ -58,14 +58,13 @@ const HomePageMenu = () => {
     dispatch(changeMainSlide(type));
   };
 
-  if (!slides) {
-    return <h2 style={{ color: "plum" }}>ayy</h2>;
-  }
+  // if (!slides) {
+  //   return <h2 style={{ color: "plum" }}>ayy</h2>;
+  // }
 
   return (
     <Wrapper>
       {slides.map((item, i) => {
-        console.log(item);
         const type = item?.attributes?.type;
         const img = item?.attributes?.img?.data?.attributes?.url;
 
