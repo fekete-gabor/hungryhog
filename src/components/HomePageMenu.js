@@ -58,34 +58,31 @@ const HomePageMenu = () => {
     dispatch(changeMainSlide(type));
   };
 
-  // if (!slides) {
-  //   return <h2 style={{ color: "plum" }}>ayy</h2>;
-  // }
-
   return (
     <Wrapper>
-      {slides.map((item, i) => {
-        const type = item?.attributes?.type;
-        const img = item?.attributes?.img?.data?.attributes?.url;
+      {slides &&
+        slides.map((item, i) => {
+          const type = item?.attributes?.type;
+          const img = item?.attributes?.img?.data?.attributes?.url;
 
-        if (type !== "összes") {
-          return (
-            <Link
-              to={`/menu#${type}`}
-              key={i}
-              onClick={() => handleChange(type, i)}
-            >
-              <div className="menu-container">
-                <h2>{type}</h2>
-                <img src={img || bg} alt={type} />
-                <div className="gradient"></div>
-              </div>
-            </Link>
-          );
-        } else {
-          return null;
-        }
-      })}
+          if (type !== "összes") {
+            return (
+              <Link
+                to={`/menu#${type}`}
+                key={i}
+                onClick={() => handleChange(type, i)}
+              >
+                <div className="menu-container">
+                  <h2>{type}</h2>
+                  <img src={img || bg} alt={type} />
+                  <div className="gradient"></div>
+                </div>
+              </Link>
+            );
+          } else {
+            return null;
+          }
+        })}
     </Wrapper>
   );
 };
