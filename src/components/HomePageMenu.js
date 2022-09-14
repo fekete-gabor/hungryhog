@@ -49,7 +49,6 @@ const HomePageMenu = () => {
       return temp;
     });
     setSlides(tempArray);
-    console.log(slides);
     // eslint-disable-next-line
   }, [menuItems]);
 
@@ -63,34 +62,32 @@ const HomePageMenu = () => {
     return <h2>ayy</h2>;
   }
 
-  if (slides) {
-    return (
-      <Wrapper>
-        {slides.map((item, i) => {
-          const type = item?.attributes?.type;
-          const img = item?.attributes?.img?.data?.attributes?.url;
+  return (
+    <Wrapper>
+      {slides.map((item, i) => {
+        const type = item?.attributes?.type;
+        const img = item?.attributes?.img?.data?.attributes?.url;
 
-          if (type !== "összes") {
-            return (
-              <Link
-                to={`/menu#${type}`}
-                key={i}
-                onClick={() => handleChange(type, i)}
-              >
-                <div className="menu-container">
-                  <h2>{type}</h2>
-                  <img src={img || bg} alt={type} />
-                  <div className="gradient"></div>
-                </div>
-              </Link>
-            );
-          } else {
-            return null;
-          }
-        })}
-      </Wrapper>
-    );
-  }
+        if (type !== "összes") {
+          return (
+            <Link
+              to={`/menu#${type}`}
+              key={i}
+              onClick={() => handleChange(type, i)}
+            >
+              <div className="menu-container">
+                <h2>{type}</h2>
+                <img src={img || bg} alt={type} />
+                <div className="gradient"></div>
+              </div>
+            </Link>
+          );
+        } else {
+          return null;
+        }
+      })}
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.section`
