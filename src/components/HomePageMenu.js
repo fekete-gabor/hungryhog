@@ -59,7 +59,7 @@ const HomePageMenu = () => {
   };
 
   if (!slides) {
-    return <h2>ayy</h2>;
+    return <h2 style={{ color: "plum" }}>ayy</h2>;
   }
 
   return (
