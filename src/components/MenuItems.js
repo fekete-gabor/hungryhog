@@ -151,7 +151,7 @@ const Wrapper = styled.section`
 
   @media screen and (min-width: 350px) {
     .menu-item-desc-grid {
-      /* width: 85vw; */
+      width: 85vw;
     }
   }
 
@@ -162,7 +162,7 @@ const Wrapper = styled.section`
   }
 
   @media screen and (min-width: 750px) {
-    .menu-item-desc-grid {
+    .menu-article-grid {
       padding: 0 5rem;
     }
   }

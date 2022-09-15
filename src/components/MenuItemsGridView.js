@@ -12,7 +12,7 @@ const MenuItemsGridView = ({ title, filteredMenuItems }) => {
     if (title === type) {
       return (
         <Wrapper key={i}>
-          <article className="menu-article">
+          <article className="menu-article-grid">
             <header>
               <img
                 src={item.attributes.img.data.attributes.url}
@@ -43,7 +43,7 @@ const MenuItemsGridView = ({ title, filteredMenuItems }) => {
 };
 
 const Wrapper = styled.section`
-  .menu-article {
+  .menu-article-grid {
     text-align: center;
   }
 
