@@ -53,11 +53,14 @@ const HeroSlides = () => {
     return <img src={mainImg} alt="slide" className="slide" />;
   }
 
-  return slides.map((slide, i) => {
-    const img = slide.attributes?.url;
+  return (
+    slides &&
+    slides.map((slide, i) => {
+      const img = slide.attributes?.url;
 
-    return <img src={img} alt="slide" key={i} className="slide" />;
-  });
+      return <img src={img} alt="slide" key={i} className="slide" />;
+    })
+  );
 };
 
 export default HeroSlides;

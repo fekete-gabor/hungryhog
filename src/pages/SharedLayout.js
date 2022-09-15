@@ -1,7 +1,20 @@
 import { Navbar, Sidebar, Footer, CreatedBy, ScrollTop } from "../components";
 import { Outlet } from "react-router-dom";
+import { useEffect } from "react";
+import { getContacts } from "../features/contacts/contactsSlice";
+import { getMenuItems, getMenuSlides } from "../features/menu/menuSlice";
+import { useDispatch } from "react-redux/es/exports";
 
 const SharedLayout = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getContacts());
+    dispatch(getMenuItems());
+    dispatch(getMenuSlides());
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <>
       <Navbar />
