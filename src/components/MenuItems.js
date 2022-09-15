@@ -56,7 +56,10 @@ const Wrapper = styled.section`
   margin-bottom: 10rem;
 
   .title-container {
+    max-width: 85%;
     h2 {
+      width: fit-content;
+      margin: 0 auto;
       color: var(--primary-black);
       letter-spacing: 4px;
       text-transform: uppercase;
@@ -64,7 +67,6 @@ const Wrapper = styled.section`
   }
 
   .title-border {
-    max-width: 40%;
     margin: 3rem auto 0;
     border-top: dotted 2px var(--primary-clr-5);
   }
@@ -162,7 +164,7 @@ const Wrapper = styled.section`
   }
 
   @media screen and (min-width: 750px) {
-    .menu-article-grid {
+    .menu-item-desc-grid {
       padding: 0 5rem;
     }
   }
