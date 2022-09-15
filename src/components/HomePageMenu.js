@@ -16,6 +16,17 @@ const HomePageMenu = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    const tempArray = menuSlides.filter((slide) => {
+      const temp = menuItems.find(
+        (item) => item.attributes.type === slide.attributes.type
+      );
+      return temp;
+    });
+    setSlides(tempArray);
+    // eslint-disable-next-line
+  }, [menuItems]);
+
+  useEffect(() => {
     gsap.utils.toArray(".menu-container").forEach((item, i) => {
       gsap.set(item, { border: "solid 2px transparent" });
       const tl = gsap.timeline({ paused: true });
@@ -41,17 +52,6 @@ const HomePageMenu = () => {
     });
   }, [slides]);
 
-  useEffect(() => {
-    const tempArray = menuSlides.filter((slide) => {
-      const temp = menuItems.find(
-        (item) => item.attributes.type === slide.attributes.type
-      );
-      return temp;
-    });
-    setSlides(tempArray);
-    // eslint-disable-next-line
-  }, [menuItems]);
-
   const handleChange = (type, i) => {
     dispatch(setMenuBtnIndex(i + 1));
     dispatch(filterMenuItems(type));
@@ -60,7 +60,7 @@ const HomePageMenu = () => {
 
   return (
     <Wrapper>
-      <div className="q">
+      <div className="main-container">
         {slides &&
           slides.map((item, i) => {
             const type = item?.attributes?.type;
@@ -91,12 +91,15 @@ const HomePageMenu = () => {
 
 const Wrapper = styled.section`
   width: 100%;
+  height: 300vh;
   background: var(--primary-clr-4);
   border-bottom: var(--border);
-  .q {
+
+  .main-container {
     display: grid;
     gap: 1rem;
   }
+
   div {
     cursor: pointer;
     width: 100%;
@@ -131,14 +134,14 @@ const Wrapper = styled.section`
   }
 
   @media screen and (min-width: 350px) {
-    .q {
+    .main-container {
       padding: 2rem;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
   }
 
   @media screen and (min-width: 1300px) {
-    .q {
+    .main-container {
       max-width: 85vw;
       margin: 0 auto;
       grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
