@@ -39,7 +39,6 @@ const MenuHeroBtns = ({ menuItems }) => {
     dispatch(setMenuBtnIndex(i));
     dispatch(filterMenuItems(btn));
     dispatch(changeMainSlide(btn));
-    dispatch(clearCurrentIngredient());
   };
 
   return (
