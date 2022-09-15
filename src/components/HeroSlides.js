@@ -56,7 +56,7 @@ const HeroSlides = () => {
   return (
     slides &&
     slides.map((slide, i) => {
-      const img = slide.attributes?.url;
+      const img = slide?.attributes?.url;
 
       return <img src={img} alt="slide" key={i} className="slide" />;
     })
