@@ -20,7 +20,7 @@ const MenuItemsGridView = ({ title, filteredMenuItems }) => {
               />
             </header>
             <footer>
-              <h3>{`${i + 1}. ${name}`}</h3>
+              <h3>{name}</h3>
               <div className="price-container">
                 {price.map((value) => {
                   return <MenuPrice key={value.id} value={value} />;
@@ -75,7 +75,6 @@ const Wrapper = styled.section`
     margin: 1rem auto 2rem;
     justify-content: center;
     align-self: flex-start;
-    /* text-align: center; */
   }
 
   header {

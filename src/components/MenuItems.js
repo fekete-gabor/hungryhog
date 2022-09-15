@@ -53,7 +53,7 @@ const MenuItems = () => {
 
 const Wrapper = styled.section`
   height: fit-content;
-  margin-bottom: 4rem;
+  margin-bottom: 10rem;
 
   .title-container {
     h2 {
@@ -120,7 +120,7 @@ const Wrapper = styled.section`
 
   @media screen and (min-width: 350px) {
     .title-container {
-      padding: 3rem 2rem;
+      padding: 3rem 0;
     }
 
     .menu-item-btn {

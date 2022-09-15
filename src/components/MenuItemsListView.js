@@ -14,7 +14,7 @@ const MenuItemsListView = ({ title, filteredMenuItems }) => {
         <Wrapper key={i}>
           <article className="menu-article-list">
             <header>
-              <h3>{`${i + 1}. ${name}`}</h3>
+              <h3>{name}</h3>
               <div className="ingredient-container">
                 {sortedIngredients.map((item, i) => {
                   return <MenuIngredients key={i} item={item} />;

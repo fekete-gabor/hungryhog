@@ -122,7 +122,6 @@ const Wrapper = styled.aside`
     gap: 0.5rem;
     padding: 1rem;
     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
-    border-bottom: solid 1.5px var(--primary-clr-5);
 
     svg {
       cursor: pointer;
@@ -139,7 +138,7 @@ const Wrapper = styled.aside`
     gap: 0.8rem;
     padding: 1rem;
     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
-    border-top: solid 1.5px var(--primary-clr-5);
+    border-top: solid 2px var(--primary-clr-5);
   }
 
   .dot {

@@ -60,29 +60,31 @@ const HomePageMenu = () => {
 
   return (
     <Wrapper>
-      {slides &&
-        slides.map((item, i) => {
-          const type = item?.attributes?.type;
-          const img = item?.attributes?.img?.data?.attributes?.url;
+      <div className="q">
+        {slides &&
+          slides.map((item, i) => {
+            const type = item?.attributes?.type;
+            const img = item?.attributes?.img?.data?.attributes?.url;
 
-          if (type !== "összes") {
-            return (
-              <Link
-                to={`/menu#${type}`}
-                key={i}
-                onClick={() => handleChange(type, i)}
-              >
-                <div className="menu-container">
-                  <h2>{type}</h2>
-                  <img src={img || bg} alt={type} />
-                  <div className="gradient"></div>
-                </div>
-              </Link>
-            );
-          } else {
-            return null;
-          }
-        })}
+            if (type !== "összes") {
+              return (
+                <Link
+                  to={`/menu#${type}`}
+                  key={i}
+                  onClick={() => handleChange(type, i)}
+                >
+                  <div className="menu-container">
+                    <h2>{type}</h2>
+                    <img src={img || bg} alt={type} />
+                    <div className="gradient"></div>
+                  </div>
+                </Link>
+              );
+            } else {
+              return null;
+            }
+          })}
+      </div>
     </Wrapper>
   );
 };
@@ -91,9 +93,10 @@ const Wrapper = styled.section`
   width: 100%;
   background: var(--primary-clr-4);
   border-bottom: var(--border);
-  display: grid;
-  gap: 1rem;
-
+  .q {
+    display: grid;
+    gap: 1rem;
+  }
   div {
     cursor: pointer;
     width: 100%;
@@ -128,12 +131,18 @@ const Wrapper = styled.section`
   }
 
   @media screen and (min-width: 350px) {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    padding: 2rem;
+    .q {
+      max-width: 85vw;
+      margin: 0 auto;
+      padding: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
   }
 
   @media screen and (min-width: 1300px) {
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    .q {
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    }
   }
 `;
 
