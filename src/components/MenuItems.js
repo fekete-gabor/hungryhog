@@ -56,10 +56,7 @@ const Wrapper = styled.section`
   margin-bottom: 10rem;
 
   .title-container {
-    max-width: 85%;
     h2 {
-      width: fit-content;
-      margin: 0 auto;
       color: var(--primary-black);
       letter-spacing: 4px;
       text-transform: uppercase;
