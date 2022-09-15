@@ -3,7 +3,6 @@ import {
   changeMainSlide,
   setMenuBtnIndex,
   filterMenuItems,
-  clearCurrentIngredient,
 } from "../features/menu/menuSlice";
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import { getUniqueValues } from "../utils/helpers";

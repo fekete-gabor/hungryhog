@@ -10,8 +10,12 @@ const HeroSlides = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
+    setMainImg(slides[currentIndex]?.attributes?.url);
+    // eslint-disable-next-line
+  }, [slides]);
+
+  useEffect(() => {
     if (isActive) {
-      setMainImg(slides[currentIndex].attributes.url);
       setTimeout(() => {
         let index = currentIndex + 1;
         if (index > slides.length - 1) {
@@ -53,14 +57,11 @@ const HeroSlides = () => {
     return <img src={mainImg} alt="slide" className="slide" />;
   }
 
-  return (
-    slides &&
-    slides.map((slide, i) => {
-      const img = slide?.attributes?.url;
+  return slides.map((slide, i) => {
+    const img = slide?.attributes?.url;
 
-      return <img src={img} alt="slide" key={i} className="slide" />;
-    })
-  );
+    return <img src={img} alt="slide" key={i} className="slide" />;
+  });
 };
 
 export default HeroSlides;
