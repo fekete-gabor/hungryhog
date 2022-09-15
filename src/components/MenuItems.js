@@ -119,6 +119,7 @@ const Wrapper = styled.section`
 
   @media screen and (min-width: 350px) {
     .title-container {
+      max-width: 65%;
       padding: 3rem 0;
     }
 
