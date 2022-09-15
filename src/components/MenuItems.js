@@ -151,7 +151,7 @@ const Wrapper = styled.section`
 
   @media screen and (min-width: 350px) {
     .menu-item-desc-grid {
-      width: 85vw;
+      /* width: 85vw; */
     }
   }
 
