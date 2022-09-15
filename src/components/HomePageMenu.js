@@ -91,7 +91,6 @@ const HomePageMenu = () => {
 
 const Wrapper = styled.section`
   width: 100%;
-  height: 300vh;
   background: var(--primary-clr-4);
   border-bottom: var(--border);
 
