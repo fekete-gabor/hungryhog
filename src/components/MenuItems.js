@@ -56,6 +56,7 @@ const Wrapper = styled.section`
   margin-bottom: 10rem;
 
   .title-container {
+    margin: 0 auto;
     h2 {
       color: var(--primary-black);
       letter-spacing: 4px;
@@ -120,7 +121,6 @@ const Wrapper = styled.section`
   @media screen and (min-width: 350px) {
     .title-container {
       max-width: 65%;
-      margin: 0 auto;
       padding: 3rem 0;
     }
 
