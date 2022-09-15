@@ -132,8 +132,6 @@ const Wrapper = styled.section`
 
   @media screen and (min-width: 350px) {
     .q {
-      max-width: 85vw;
-      margin: 0 auto;
       padding: 2rem;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
@@ -141,6 +139,8 @@ const Wrapper = styled.section`
 
   @media screen and (min-width: 1300px) {
     .q {
+      max-width: 85vw;
+      margin: 0 auto;
       grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
     }
   }
