@@ -64,7 +64,6 @@ const Wrapper = styled.section`
     width: 100%;
     height: fit-content;
     display: flex;
-
     margin: 0 auto;
     text-align: center;
     gap: 0.5rem;
