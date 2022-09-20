@@ -11,26 +11,21 @@ export const links = [
   },
   {
     id: 3,
-    text: "asztalfoglalás",
-    url: "/asztalfoglalas",
-  },
-  {
-    id: 4,
     text: "rólunk",
     url: "/rolunk",
   },
   {
-    id: 5,
+    id: 4,
     text: "galéria",
     url: "/galeria",
   },
   {
-    id: 6,
+    id: 5,
     text: "hírek",
     url: "/hirek",
   },
   {
-    id: 7,
+    id: 6,
     text: "elérhetőségek",
     url: "/elerhetosegek",
   },

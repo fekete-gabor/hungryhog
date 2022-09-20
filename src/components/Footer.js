@@ -34,6 +34,7 @@ const Wrapper = styled.footer`
   width: 100%;
   overflow: hidden;
   background: var(--primary-clr-4);
+  border-top: var(--border);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;

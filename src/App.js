@@ -2,7 +2,6 @@ import {
   SharedLayout,
   HomePage,
   MenuPage,
-  ReservationPage,
   AboutUsPage,
   GalleryPage,
   NewsPage,
@@ -19,7 +18,6 @@ const App = () => {
           <Route path="/" element={<SharedLayout />}>
             <Route index path="/" element={<HomePage />} />
             <Route path="/menu" element={<MenuPage />} />
-            <Route path="/asztalfoglalas" element={<ReservationPage />} />
             <Route path="/rolunk" element={<AboutUsPage />} />
             <Route path="/galeria" element={<GalleryPage />} />
             <Route path="/hirek" element={<NewsPage />} />

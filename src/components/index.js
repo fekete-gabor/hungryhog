@@ -42,6 +42,16 @@ import MenuItemsGridView from "./MenuItemsGridView";
 import MenuItemsListView from "./MenuItemsListView";
 import MenuSidebar from "./MenuSidebar";
 
+// ****************
+// ABOUT US PAGE
+// ****************
+
+import History from "./History";
+import Founder from "./Founder";
+import Building from "./TheBuilding";
+import Owners from "./Owners";
+import CustomSlider from "./CustomSlider";
+
 export {
   Navbar,
   Sidebar,
@@ -72,4 +82,9 @@ export {
   MenuItemsGridView,
   MenuItemsListView,
   MenuSidebar,
+  History,
+  Founder,
+  Building,
+  Owners,
+  CustomSlider,
 };

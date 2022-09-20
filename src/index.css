@@ -6,6 +6,7 @@ Font families
 
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Oswald&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Oswald&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
 
 /*
 =============== 
@@ -16,6 +17,7 @@ Variables
 :root {
   --ff-cursive: "Abril Fatface", cursive;
   --ff-secondary: "Bebas Neue", cursive;
+  --ff-cursive-secondary: "Anton", sans-serif;
   /* darkest grey - used for headings */
   --clr-grey-1: hsl(209, 61%, 16%);
   --clr-grey-2: hsl(209, 34%, 30%);
