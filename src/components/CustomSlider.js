@@ -46,7 +46,7 @@ const CustomSlider = ({
   }, []);
 
   useEffect(() => {
-    titles.forEach((title) => {
+    titles.forEach((title, i) => {
       const parent = title.parentElement;
       const underline = title.children[0];
       const shadowColor = title.dataset.shadow_color;
