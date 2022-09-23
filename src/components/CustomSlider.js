@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import useMediaQuery from "../utils/mediaQuery";
 import styled from "styled-components";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -11,6 +12,8 @@ const CustomSlider = ({
   fontColor = "#f2a007",
   shadowColor = "brown",
 }) => {
+  const mediaQuery = useMediaQuery("(min-width: 1550px)");
+
   useEffect(() => {
     gsap.utils.toArray(".slider-title").forEach((title) => {
       const fontColor = title.dataset.font_color;
@@ -36,14 +39,14 @@ const CustomSlider = ({
         autoAlpha: 0,
       });
     });
-  }, []);
+  }, [mediaQuery]);
 
   useEffect(() => {
     gsap.utils.toArray(".slider-title").forEach((title) => {
       const parent = title.parentElement;
       const underline = title.children[0];
       const shadowColor = title.dataset.shadow_color;
-      console.log(parent);
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: parent,
@@ -72,7 +75,7 @@ const CustomSlider = ({
         )
         .to(title, { duration: 6, delay: 10, autoAlpha: 0 });
     });
-  }, []);
+  }, [mediaQuery]);
 
   return (
     <Wrapper className="wrapper" data-background_color={backgroundColor}>
