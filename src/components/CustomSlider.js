@@ -43,15 +43,15 @@ const CustomSlider = ({
       const parent = title.parentElement;
       const underline = title.children[0];
       const shadowColor = title.dataset.shadow_color;
-
+      console.log(parent);
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: parent,
-          markers: true,
           scrub: true,
           pin: parent,
         },
       });
+
       tl.to(title, {
         duration: 6,
         x: "0%",
