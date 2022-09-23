@@ -30,6 +30,7 @@ const AboutUsPage = () => {
         onEnter: () => gsap.to(paragraph, { duration: 1, autoAlpha: 1 }),
       });
     });
+    // eslint-disable-next-line
   }, [mediaQuery]);
 
   return (
