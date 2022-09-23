@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import useMediaQuery from "../utils/mediaQuery";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -12,7 +11,12 @@ const CustomSlider = ({
   fontColor = "#f2a007",
   shadowColor = "brown",
 }) => {
-  const mediaQuery = useMediaQuery("(min-width: 1550px)");
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    const tempArray = document.querySelectorAll(".about-us-img");
+    setImages(tempArray);
+  }, []);
 
   useEffect(() => {
     gsap.utils.toArray(".slider-title").forEach((title) => {
@@ -39,7 +43,7 @@ const CustomSlider = ({
         autoAlpha: 0,
       });
     });
-  }, [mediaQuery]);
+  }, []);
 
   useEffect(() => {
     gsap.utils.toArray(".slider-title").forEach((title) => {
@@ -75,7 +79,7 @@ const CustomSlider = ({
         )
         .to(title, { duration: 6, delay: 10, autoAlpha: 0 });
     });
-  }, [mediaQuery]);
+  }, [images]);
 
   return (
     <Wrapper className="wrapper" data-background_color={backgroundColor}>

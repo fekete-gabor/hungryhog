@@ -30,12 +30,12 @@ const Building = () => {
           <img
             src={restaurant_1}
             alt="interior of the restaurant"
-            className="restaurant-img"
+            className="about-us-img"
           />
           <img
             src={restaurant_2}
             alt="interior of the restaurant"
-            className="restaurant-img"
+            className="about-us-img"
           />
         </div>
       </article>
