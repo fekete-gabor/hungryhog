@@ -11,11 +11,11 @@ const CustomSlider = ({
   fontColor = "#f2a007",
   shadowColor = "brown",
 }) => {
-  const [images, setImages] = useState([]);
+  const [titles, setTitles] = useState([]);
 
   useEffect(() => {
-    const tempArray = document.querySelectorAll(".about-us-img");
-    setImages(tempArray);
+    const tempArray = document.querySelectorAll(".slider-title");
+    setTitles(tempArray);
   }, []);
 
   useEffect(() => {
@@ -46,7 +46,7 @@ const CustomSlider = ({
   }, []);
 
   useEffect(() => {
-    gsap.utils.toArray(".slider-title").forEach((title) => {
+    titles.forEach((title) => {
       const parent = title.parentElement;
       const underline = title.children[0];
       const shadowColor = title.dataset.shadow_color;
@@ -54,6 +54,7 @@ const CustomSlider = ({
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: parent,
+          markers: true,
           scrub: true,
           pin: parent,
         },
@@ -79,7 +80,7 @@ const CustomSlider = ({
         )
         .to(title, { duration: 6, delay: 10, autoAlpha: 0 });
     });
-  }, [images]);
+  }, [titles]);
 
   return (
     <Wrapper className="wrapper" data-background_color={backgroundColor}>

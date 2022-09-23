@@ -27,7 +27,7 @@ const Owners = () => {
       )}
       <article className="container-1">
         <header>
-          <img src={chef_1} alt="first chef" className="about-us-img" />
+          <img src={chef_1} alt="first chef" />
           <div className="mask"></div>
         </header>
         <div className="desc-container-left">
@@ -50,7 +50,7 @@ const Owners = () => {
           <Paragraph amount={1} className={"reveal"} />
         </div>
         <footer>
-          <img src={chef_2} alt="second chef" className="about-us-img" />
+          <img src={chef_2} alt="second chef" />
           <div className="mask"></div>
         </footer>
       </article>
