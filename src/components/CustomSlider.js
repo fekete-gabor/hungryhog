@@ -54,7 +54,6 @@ const CustomSlider = ({
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: parent,
-          markers: true,
           scrub: true,
           pin: parent,
         },
