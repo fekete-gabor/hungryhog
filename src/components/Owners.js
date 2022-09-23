@@ -13,19 +13,6 @@ const Owners = () => {
   const mediaQuery = useMediaQuery("(min-width: 1550px)");
 
   useEffect(() => {
-    gsap.utils.toArray(".reveal").forEach((paragraph) => {
-      gsap.set(paragraph, { autoAlpha: 0 });
-
-      ScrollTrigger.create({
-        trigger: paragraph,
-        start: "top 80%",
-        end: "bottom center",
-        onEnter: () => gsap.to(paragraph, { duration: 1, autoAlpha: 1 }),
-      });
-    });
-  }, []);
-
-  useEffect(() => {
     gsap.utils.toArray(".mask").forEach((mask) => {
       gsap.set(mask, { height: "100%" });
 
@@ -36,7 +23,7 @@ const Owners = () => {
         onEnter: () => gsap.to(mask, { duration: 1, height: 0 }),
       });
     });
-  }, []);
+  }, [mediaQuery]);
 
   return (
     <Wrapper>

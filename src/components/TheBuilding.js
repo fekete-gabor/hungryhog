@@ -22,9 +22,9 @@ const Building = () => {
       <article className="container">
         <header>
           <h2>a főhadiszállás</h2>
-          <Paragraph amount={2} />
-          <div></div>
-          <Paragraph amount={1} />
+          <Paragraph amount={2} className={"reveal"} />
+          <div className={"reveal"}></div>
+          <Paragraph amount={1} className={"reveal"} />
         </header>
         <div className="img-container">
           <img

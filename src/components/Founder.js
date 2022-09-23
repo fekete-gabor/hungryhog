@@ -25,9 +25,9 @@ const Founder = () => {
           ) : (
             <h2>alapítónk, aki elhozta nekünk az ízeket</h2>
           )}
-          <Paragraph amount={2} />
-          <div></div>
-          <Paragraph amount={1} />
+          <Paragraph amount={2} className={"reveal"} />
+          <div className={"reveal"}></div>
+          <Paragraph amount={1} className={"reveal"} />
         </header>
         <div className="img-container">
           <img src={founder} alt="founder of the restaurant" />
