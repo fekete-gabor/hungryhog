@@ -59,25 +59,11 @@ const CustomSlider = ({
         },
       });
 
-      tl.to(title, {
-        duration: 6,
-        x: "0%",
-        autoAlpha: 1,
-      })
-        .to(title, {
-          duration: 6,
-          scale: "1.25",
-        })
-        .to(underline, { duration: 6, width: "100%", autoAlpha: 1 }, 10)
-        .to(
-          title,
-          {
-            duration: 6,
-            textShadow: `5px 2px 0px ${shadowColor}`,
-          },
-          10
-        )
-        .to(title, { duration: 6, delay: 10, autoAlpha: 0 });
+      tl.to(title, { x: "0%", autoAlpha: 1 })
+        .to(title, { scale: "1.25" })
+        .to(underline, { width: "100%", autoAlpha: 1 }, 10)
+        .to(title, { textShadow: `5px 2px 0px ${shadowColor}` }, 10)
+        .to(title, { delay: 10, autoAlpha: 0 });
     });
   }, [titles]);
 
