@@ -47,8 +47,6 @@ const CustomSlider = ({
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: parent,
-          start: "top 0%",
-          end: "+=225%",
           scrub: true,
           pin: parent,
         },
@@ -96,7 +94,7 @@ const CustomSlider = ({
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 300vh;
+  height: 150vh;
   overflow: hidden;
 
   .slider {

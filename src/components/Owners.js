@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { CustomSlider } from "./index";
 import useMediaQuery from "../utils/mediaQuery";
 import Paragraph from "../utils/Paragraph";
@@ -11,19 +10,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Owners = () => {
   const mediaQuery = useMediaQuery("(min-width: 1550px)");
-
-  useEffect(() => {
-    gsap.utils.toArray(".mask").forEach((mask) => {
-      gsap.set(mask, { height: "100%" });
-
-      ScrollTrigger.create({
-        trigger: mask,
-        start: "top center",
-        end: "bottom center",
-        onEnter: () => gsap.to(mask, { duration: 1, height: 0 }),
-      });
-    });
-  }, [mediaQuery]);
 
   return (
     <Wrapper>
