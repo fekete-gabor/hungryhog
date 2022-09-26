@@ -27,13 +27,16 @@ const AboutUsPage = () => {
 
   useEffect(() => {
     paragraphs.forEach((paragraph) => {
-      ScrollTrigger.create({
-        trigger: paragraph,
-        start: "top center",
-        end: "bottom center",
-        markers: true,
-        onEnter: () => gsap.to(paragraph, { autoAlpha: 1 }),
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: paragraph,
+          start: "top center",
+          end: "bottom center",
+          markers: true,
+        },
       });
+
+      tl.to(paragraph, { duration: 1, autoAlpha: 1 });
     });
     // eslint-disable-next-line
   }, [paragraphs]);
