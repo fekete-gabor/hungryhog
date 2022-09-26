@@ -27,8 +27,16 @@ const Building = () => {
           <Paragraph amount={1} className={"reveal"} />
         </header>
         <div className="img-container">
-          <img src={restaurant_1} alt="interior of the restaurant" />
-          <img src={restaurant_2} alt="interior of the restaurant" />
+          <img
+            src={restaurant_1}
+            alt="interior of the restaurant"
+            className="about-us-img"
+          />
+          <img
+            src={restaurant_2}
+            alt="interior of the restaurant"
+            className="about-us-img"
+          />
         </div>
       </article>
     </Wrapper>

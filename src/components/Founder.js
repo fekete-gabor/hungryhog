@@ -30,7 +30,11 @@ const Founder = () => {
           <Paragraph amount={1} className={"reveal"} />
         </header>
         <div className="img-container">
-          <img src={founder} alt="founder of the restaurant" />
+          <img
+            src={founder}
+            alt="founder of the restaurant"
+            className="about-us-img"
+          />
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo
             dolorem quis quia asperiores corporis amet rem, nulla vitae cumque
