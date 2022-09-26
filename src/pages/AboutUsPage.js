@@ -19,8 +19,9 @@ const AboutUsPage = () => {
 
       ScrollTrigger.create({
         trigger: paragraph,
-        start: "top center",
-        end: "bottom center",
+        // start: "top center",
+        // end: "bottom center",
+        markers: true,
         onEnter: () => gsap.to(paragraph, { duration: 1, autoAlpha: 1 }),
       });
     });
