@@ -12,6 +12,9 @@ const AboutUsPage = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const tempArray = document.querySelectorAll(".reveal");
     setParagraphs(tempArray);
   }, []);
@@ -19,16 +22,17 @@ const AboutUsPage = () => {
   useEffect(() => {
     paragraphs.forEach((paragraph) => {
       gsap.set(paragraph, { autoAlpha: 0 });
+    });
+  }, [paragraphs]);
 
-      const tl = gsap.timeline({ paused: true });
-      const anim = tl.to(paragraph, { duration: 1, autoAlpha: 1 });
-
+  useEffect(() => {
+    paragraphs.forEach((paragraph) => {
       ScrollTrigger.create({
         trigger: paragraph,
         start: "top center",
         end: "bottom center",
         markers: true,
-        onEnter: () => anim.play(),
+        onEnter: () => gsap.to(paragraph, { autoAlpha: 1 }),
       });
     });
     // eslint-disable-next-line
