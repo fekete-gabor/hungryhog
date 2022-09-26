@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import useMediaQuery from "../utils/mediaQuery";
 import styled from "styled-components";
 import { History, Founder, Building, Owners } from "../components";
@@ -8,13 +8,16 @@ gsap.registerPlugin(ScrollTrigger);
 
 const AboutUsPage = () => {
   const mediaQuery = useMediaQuery("(min-width: 1550px)");
+  const [paragraphs, setParagraphs] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    const tempArray = document.querySelectorAll(".reveal");
+    setParagraphs(tempArray);
   }, []);
 
   useEffect(() => {
-    gsap.utils.toArray(".reveal").forEach((paragraph) => {
+    paragraphs.forEach((paragraph) => {
       gsap.set(paragraph, { autoAlpha: 0 });
 
       const tl = gsap.timeline({ paused: true });
@@ -29,7 +32,7 @@ const AboutUsPage = () => {
       });
     });
     // eslint-disable-next-line
-  }, [mediaQuery]);
+  }, [paragraphs, mediaQuery]);
 
   return (
     <Wrapper>
