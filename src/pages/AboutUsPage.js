@@ -22,24 +22,19 @@ const AboutUsPage = () => {
   useEffect(() => {
     paragraphs.forEach((paragraph) => {
       gsap.set(paragraph, { autoAlpha: 0 });
-    });
-  }, [paragraphs]);
 
-  useEffect(() => {
-    paragraphs.forEach((paragraph) => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: paragraph,
           start: "top center",
           end: "bottom center",
-          markers: true,
         },
       });
 
       tl.to(paragraph, { duration: 1, autoAlpha: 1 });
     });
     // eslint-disable-next-line
-  }, [paragraphs]);
+  }, [paragraphs, mediaQuery]);
 
   return (
     <Wrapper>
