@@ -32,7 +32,7 @@ const AboutUsPage = () => {
       });
     });
     // eslint-disable-next-line
-  }, [paragraphs, mediaQuery]);
+  }, [paragraphs]);
 
   return (
     <Wrapper>
