@@ -12,10 +12,10 @@ const Founder = () => {
       {mediaQuery && (
         <CustomSlider
           title={"éttermünk alapítója"}
-          backgroundColor={"#2b2724"}
-          underlineColor={"#f2f2f0"}
-          fontColor={"#f2a007"}
-          shadowColor={"#13498F"}
+          backgroundColor={"#F0BC71"}
+          underlineColor={"#2b2724"}
+          fontColor={"#005ca1"}
+          shadowColor={"#A3882C"}
         />
       )}
       <article className="container">
@@ -44,13 +44,12 @@ const Founder = () => {
 
 const Wrapper = styled.div`
   border-top: var(--border);
-  background: var(--primary-clr-4);
   height: fit-content;
-  padding-bottom: 3rem;
 
   .container {
     display: grid;
     text-align: center;
+    padding-bottom: 3rem;
   }
 
   header {
@@ -62,19 +61,19 @@ const Wrapper = styled.div`
 
     h2 {
       padding: 0;
-      color: var(--primary-clr-3);
+      color: #005ca1;
     }
 
     p {
       padding: 1rem 0;
-      color: var(--primary-white);
+      color: var(--primary-clr-4);
       font-size: 1.05rem;
     }
     div {
       margin: 0 auto;
       width: 65%;
       height: 2px;
-      background: var(--primary-clr-3);
+      background: #005ca1;
     }
   }
 
@@ -90,7 +89,7 @@ const Wrapper = styled.div`
     }
     p {
       width: 100%;
-      color: var(--primary-white);
+      color: var(--primary-clr-4);
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
@@ -104,7 +103,6 @@ const Wrapper = styled.div`
   }
 
   @media screen and (min-width: 992px) {
-    padding-bottom: 5rem;
     .container {
       display: grid;
       text-align: right;

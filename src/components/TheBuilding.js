@@ -37,7 +37,6 @@ const Building = () => {
 
 const Wrapper = styled.div`
   border-top: var(--border);
-  background: var(--primary-clr-1);
   height: fit-content;
 
   .container {

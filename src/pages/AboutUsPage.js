@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import useMediaQuery from "../utils/mediaQuery";
 import styled from "styled-components";
 import { History, Founder, Building, Owners } from "../components";
@@ -7,7 +7,6 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const AboutUsPage = () => {
-  const [paragraphs, setParagraphs] = useState([]);
   const mediaQuery = useMediaQuery("(min-width: 1550px)");
 
   useEffect(() => {
@@ -15,12 +14,7 @@ const AboutUsPage = () => {
   }, []);
 
   useEffect(() => {
-    const tempArray = document.querySelectorAll(".reveal");
-    setParagraphs(tempArray);
-  }, []);
-
-  useEffect(() => {
-    paragraphs.forEach((paragraph) => {
+    gsap.utils.toArray(".reveal").forEach((paragraph) => {
       gsap.set(paragraph, { autoAlpha: 0 });
 
       ScrollTrigger.create({
@@ -45,7 +39,7 @@ const AboutUsPage = () => {
 
 const Wrapper = styled.section`
   width: 100%;
-  min-height: 100vh;
+  height: fit-content;
 `;
 
 export default AboutUsPage;

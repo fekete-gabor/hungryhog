@@ -23,8 +23,6 @@ const CustomSlider = ({
       const fontColor = title.dataset.font_color;
 
       gsap.set(title, {
-        x: "100%",
-        autoAlpha: 0,
         color: fontColor,
       });
     });
@@ -46,28 +44,23 @@ const CustomSlider = ({
   }, []);
 
   useEffect(() => {
-    titles.forEach((title, i) => {
+    titles.forEach((title) => {
       const parent = title.parentElement;
       const underline = title.children[0];
       const shadowColor = title.dataset.shadow_color;
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: parent,
-          scrub: true,
-          pin: parent,
-        },
-      });
+      const tl = gsap.timeline({ paused: true });
 
-      tl.to(title, { duration: 6, x: "0%", autoAlpha: 1 })
-        .to(title, { duration: 6, scale: "1.25" })
-        .to(underline, { duration: 6, width: "100%", autoAlpha: 1 }, 10)
-        .to(
-          title,
-          { duration: 6, textShadow: `5px 2px 0px ${shadowColor}` },
-          10
-        )
-        .to(title, { duration: 6, delay: 10, autoAlpha: 0 });
+      const anim = tl
+        .to(underline, { width: "100%", autoAlpha: 1 })
+        .to(title, { textShadow: `5px 2px 0px ${shadowColor}` }, 0);
+
+      ScrollTrigger.create({
+        trigger: parent,
+        start: "top 60%",
+        end: "bottom center",
+        onEnter: () => anim.play(),
+      });
     });
   }, [titles]);
 
@@ -92,12 +85,13 @@ const CustomSlider = ({
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 150vh;
+  height: fit-content;
+  padding: 5rem;
   overflow: hidden;
 
   .slider {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
