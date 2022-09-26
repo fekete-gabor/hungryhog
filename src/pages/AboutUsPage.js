@@ -17,12 +17,15 @@ const AboutUsPage = () => {
     gsap.utils.toArray(".reveal").forEach((paragraph) => {
       gsap.set(paragraph, { autoAlpha: 0 });
 
+      const tl = gsap.timeline({ paused: true });
+      const anim = tl.to(paragraph, { duration: 1, autoAlpha: 1 });
+
       ScrollTrigger.create({
         trigger: paragraph,
         start: "top center",
         end: "bottom center",
         markers: true,
-        onEnter: () => gsap.to(paragraph, { duration: 1, autoAlpha: 1 }),
+        onEnter: () => anim.play(),
       });
     });
     // eslint-disable-next-line
