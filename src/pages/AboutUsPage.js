@@ -19,7 +19,7 @@ const AboutUsPage = () => {
 
       ScrollTrigger.create({
         trigger: paragraph,
-        start: "top 80%",
+        start: "top center",
         end: "bottom center",
         onEnter: () => gsap.to(paragraph, { duration: 1, autoAlpha: 1 }),
       });
