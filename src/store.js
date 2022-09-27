@@ -4,6 +4,8 @@ import heroReducer from "./features/hero/heroSlice";
 import environmentReducer from "./features/environment/environmentSlice";
 import contactsReducer from "./features/contacts/contactsSlice";
 import menuReducer from "./features/menu/menuSlice";
+import galleryReducer from "./features/gallery/gallerySlice";
+import modalReducer from "./features/modal/modalSlice";
 
 const store = configureStore({
   reducer: {
@@ -12,6 +14,8 @@ const store = configureStore({
     environment: environmentReducer,
     contacts: contactsReducer,
     menu: menuReducer,
+    gallery: galleryReducer,
+    modal: modalReducer,
   },
 });
 

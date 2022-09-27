@@ -52,6 +52,13 @@ import Building from "./TheBuilding";
 import Owners from "./Owners";
 import CustomSlider from "./CustomSlider";
 
+// ****************
+// GALLERY PAGE
+// ****************
+
+import Gallery from "./Gallery";
+import Modal from "./Modal";
+
 export {
   Navbar,
   Sidebar,
@@ -87,4 +94,6 @@ export {
   Building,
   Owners,
   CustomSlider,
+  Gallery,
+  Modal,
 };

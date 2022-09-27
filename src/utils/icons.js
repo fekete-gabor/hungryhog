@@ -4,7 +4,7 @@ import {
   AiOutlineClose,
 } from "react-icons/ai";
 import { CgCloseR } from "react-icons/cg";
-import { BiUpArrowAlt } from "react-icons/bi";
+import { BiUpArrowAlt, BiChevronsLeft, BiChevronsRight } from "react-icons/bi";
 import { BsGridFill } from "react-icons/bs";
 import {
   FaFacebookSquare,
@@ -38,5 +38,7 @@ export {
   AiOutlineClose,
   CgCloseR,
   BiUpArrowAlt,
+  BiChevronsLeft,
+  BiChevronsRight,
   BsGridFill,
 };
