@@ -13,6 +13,10 @@ const Gallery = () => {
     dispatch(changeCurrentItem(i));
   };
 
+  useEffect(() => {
+    gsap.utils.toArray(".images");
+  }, [images]);
+
   return (
     <Wrapper>
       {images.map((img, i) => {
@@ -39,8 +43,8 @@ const Wrapper = styled.div`
   margin: 3rem auto;
 
   div {
-    max-width: 550px;
-    max-height: 600px;
+    max-width: 350px;
+    max-height: 300px;
     cursor: pointer;
     img {
       width: 100%;

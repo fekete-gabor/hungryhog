@@ -1,16 +1,21 @@
 import styled from "styled-components";
 import { BiUpArrowAlt } from "../utils/icons";
-
-const scrollTop = () => {
-  window.scrollTo(0, 0);
-};
+import { useSelector } from "react-redux";
 
 const ScrollTop = () => {
+  const { isModal } = useSelector((store) => store.modal);
+
+  const scrollTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <Wrapper>
-      <button onClick={() => scrollTop()}>
-        <BiUpArrowAlt />
-      </button>
+      {isModal || (
+        <button onClick={() => scrollTop()}>
+          <BiUpArrowAlt />
+        </button>
+      )}
     </Wrapper>
   );
 };

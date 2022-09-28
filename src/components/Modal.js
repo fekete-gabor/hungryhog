@@ -62,23 +62,27 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  height: 100vh;
+  overflow: hidden;
   background: #222;
   user-select: none;
+  position: fixed;
+  top: 0;
 
   .container {
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-rows: 85% 15%;
+    grid-template-rows: 1fr auto;
     position: relative;
   }
 
   .close-icon {
     position: absolute;
-    top: 75px;
+    top: 15px;
     right: 15px;
     color: var(--primary-clr-5);
-    font-size: 3rem;
+    font-size: 2rem;
     z-index: 1;
     cursor: pointer;
   }
@@ -94,30 +98,44 @@ const Wrapper = styled.div`
   }
 
   header {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
+    position: relative;
     svg {
+      position: absolute;
+      top: 50%;
       font-size: 3rem;
       color: #fc3;
       cursor: pointer;
+      display: block;
+      z-index: 1;
     }
     img {
       width: 100%;
-      max-width: 700px;
-      height: 100%;
-      object-fit: cover;
+      max-height: 700px;
+      object-fit: scale-down;
     }
   }
 
+  .left {
+    left: 20px;
+  }
+  .right {
+    right: 20px;
+  }
+
   footer {
-    width: fit-content;
+    width: 100%;
+    height: 100%;
     margin: 0 auto;
     gap: 0.5rem;
     display: flex;
+    justify-content: center;
     align-items: center;
+    overflow: hidden;
     img {
       width: 100px;
       height: 100px;

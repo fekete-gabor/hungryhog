@@ -12,6 +12,7 @@ import { Contacts } from "./index";
 const Navbar = () => {
   const { isSidebar } = useSelector((store) => store.sidebar);
   const { contacts } = useSelector((store) => store.contacts);
+  const { isModal } = useSelector((store) => store.modal);
   const dispatch = useDispatch();
   const mediaQuery = useMediaQuery("(min-width: 992px)");
 
@@ -48,8 +49,17 @@ const Navbar = () => {
     }
   }, [contacts]);
 
+  useEffect(() => {
+    if (isModal) {
+      gsap.to(".navbar", { y: "-100%" });
+    } else {
+      gsap.to(".navbar", { y: "0%" });
+    }
+    // eslint-disable-next-line
+  }, [isModal]);
+
   return (
-    <Wrapper>
+    <Wrapper className="navbar">
       <section className="nav-container">
         <div>
           <Link to="/" onClick={() => dispatch(sidebarClose())}>
