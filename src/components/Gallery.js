@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { isModalOpen } from "../features/modal/modalSlice";
 import { changeCurrentItem } from "../features/gallery/gallerySlice";
 import { useDispatch, useSelector } from "react-redux";
+import { gsap } from "gsap/dist/gsap";
 
 const Gallery = () => {
   const { images } = useSelector((store) => store.gallery);
@@ -14,18 +15,33 @@ const Gallery = () => {
   };
 
   useEffect(() => {
-    gsap.utils.toArray(".images");
+    gsap.utils.toArray(".gallery-img").forEach((img) => {
+      img.addEventListener("mouseover", (e) => {
+        gsap.to(".gallery-img", {
+          filter: "grayscale(100%)",
+        });
+        gsap.to(e.target, { filter: "grayscale(0%)" });
+      });
+    });
   }, [images]);
 
+  useEffect(() => {
+    const container = document.querySelector(".gallery-img-container");
+
+    container.addEventListener("mouseleave", () => {
+      gsap.to(".gallery-img", { filter: "grayscale(0)" });
+    });
+  }, []);
+
   return (
-    <Wrapper>
+    <Wrapper className="gallery-img-container">
       {images.map((img, i) => {
         const { id } = img;
         const { name, url } = img.attributes;
 
         return (
           <div key={id} onClick={() => handleChange(i)}>
-            <img src={url} alt={name} />
+            <img src={url} alt={name} className="gallery-img" />
           </div>
         );
       })}
