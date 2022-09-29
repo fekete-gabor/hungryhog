@@ -390,7 +390,7 @@ const Wrapper = styled.div`
     }
     img {
       width: 100%;
-      max-height: 700px;
+      max-height: 800px;
       object-fit: scale-down;
     }
   }
@@ -410,6 +410,7 @@ const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     overflow: hidden;
+
     img {
       width: 100px;
       height: 100px;
