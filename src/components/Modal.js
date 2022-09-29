@@ -407,7 +407,7 @@ const Wrapper = styled.div`
     height: fit-content;
     background-color: red;
     margin: 0 auto;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     display: flex;
     justify-content: center;
