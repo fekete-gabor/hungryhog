@@ -19,21 +19,19 @@ const Modal = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const wrapper = document.querySelector(".wrapper");
     const colors = ["#f38630", "#6fb936", "#ccc", "#6fb936"];
-    const boxes = gsap.utils.toArray(".box");
-    console.clear();
-    gsap.set(boxes, {
+    const images = gsap.utils.toArray(".img");
+    gsap.set(images, {
       backgroundColor: gsap.utils.wrap(colors),
     });
 
-    const loop = horizontalLoop(boxes, {
+    const loop = horizontalLoop(images, {
       paused: true,
       draggable: true, // make it draggable
     });
 
-    boxes.forEach((box, i) =>
-      box.addEventListener("click", () =>
+    images.forEach((img, i) =>
+      img.addEventListener("click", () =>
         loop.toIndex(i, { duration: 0.8, ease: "power1.inOut" })
       )
     );
@@ -252,7 +250,6 @@ Features:
           ratio,
           startProgress,
           draggable,
-          dragSnap,
           align = () =>
             tl.progress(
               wrap(startProgress + (draggable.startX - draggable.x) * ratio)
@@ -324,7 +321,7 @@ Features:
             return (
               <div
                 key={id}
-                className={current_index === i ? "active img box" : "img box"}
+                className={current_index === i ? "active img" : "img"}
                 onClick={() => dispatch(changeCurrentItem(i))}
               >
                 <img src={url} alt={name} />
@@ -353,7 +350,7 @@ const Wrapper = styled.div`
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: 85% 15%;
     position: relative;
   }
 
