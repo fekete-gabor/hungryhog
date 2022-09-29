@@ -345,6 +345,7 @@ const Wrapper = styled.div`
   user-select: none;
   position: fixed;
   top: 0;
+  overflow-y: scroll;
 
   .container {
     width: 100%;
@@ -352,6 +353,7 @@ const Wrapper = styled.div`
     display: grid;
     grid-template-rows: 85% 15%;
     position: relative;
+    overflow: hidden;
   }
 
   .close-icon {
