@@ -405,7 +405,6 @@ const Wrapper = styled.div`
 
   footer {
     height: fit-content;
-    background-color: red;
     margin: 0 auto;
     position: absolute;
     bottom: 0;
