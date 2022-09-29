@@ -18,10 +18,9 @@ const Gallery = () => {
     gsap.utils.toArray(".gallery-img").forEach((img) => {
       img.addEventListener("mouseover", (e) => {
         gsap.to(".gallery-img", {
-          duration: 1,
           filter: "grayscale(100%)",
         });
-        gsap.to(e.target, { duration: 1, filter: "grayscale(0%)" });
+        gsap.to(e.target, { filter: "grayscale(0%)" });
       });
     });
   }, [images]);
@@ -30,7 +29,7 @@ const Gallery = () => {
     const container = document.querySelector(".gallery-img-container");
 
     container.addEventListener("mouseleave", () => {
-      gsap.to(".gallery-img", { duration: 1, filter: "grayscale(0)" });
+      gsap.to(".gallery-img", { filter: "none" });
     });
   }, []);
 
