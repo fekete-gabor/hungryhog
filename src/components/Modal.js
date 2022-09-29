@@ -349,8 +349,6 @@ const Wrapper = styled.div`
   .container {
     width: 100%;
     height: 100%;
-    display: grid;
-    grid-template-rows: 85% 15%;
     position: relative;
     overflow: hidden;
   }
@@ -375,7 +373,7 @@ const Wrapper = styled.div`
 
   header {
     width: 100%;
-    height: 100%;
+    height: calc(100% - 100px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -404,6 +402,7 @@ const Wrapper = styled.div`
   }
 
   footer {
+    background-color: beige;
     height: fit-content;
     margin: 0 auto;
     position: absolute;
