@@ -403,7 +403,8 @@ const Wrapper = styled.div`
   }
 
   footer {
-    height: 100%;
+    height: fit-content;
+    background-color: red;
     margin: 0 auto;
     position: relative;
     display: flex;
