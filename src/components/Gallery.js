@@ -29,7 +29,11 @@ const Gallery = () => {
     const container = document.querySelector(".gallery-img-container");
 
     container.addEventListener("mouseleave", () => {
-      gsap.to(".gallery-img", { filter: "grayscale(0%)" });
+      gsap.fromTo(
+        ".gallery-img",
+        { filter: "grayscale(100%)" },
+        { filter: "grayscale(0%)" }
+      );
     });
   }, []);
 
