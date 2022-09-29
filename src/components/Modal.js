@@ -339,13 +339,12 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
   background: #222;
   user-select: none;
   position: fixed;
   top: 0;
-  overflow-y: scroll;
 
   .container {
     width: 100%;
@@ -408,7 +407,8 @@ const Wrapper = styled.div`
     height: fit-content;
     background-color: red;
     margin: 0 auto;
-    position: relative;
+    position: absolute;
+    bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
