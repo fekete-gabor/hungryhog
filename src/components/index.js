@@ -8,6 +8,7 @@ import Footer from "./Footer";
 import CreatedBy from "./CreatedBy";
 import ScrollTop from "./ScrollTop";
 import Error from "./Error";
+import Spinner from "./Spinner";
 
 // ****************
 // HOME PAGE
@@ -66,6 +67,7 @@ export {
   CreatedBy,
   ScrollTop,
   Error,
+  Spinner,
   Hero,
   HeroSlides,
   Environment,

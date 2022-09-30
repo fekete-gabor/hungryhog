@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Spinner } from "./index";
 import styled from "styled-components";
 import { isModalOpen } from "../features/modal/modalSlice";
 import { changeCurrentItem } from "../features/gallery/gallerySlice";
@@ -6,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { gsap } from "gsap/dist/gsap";
 
 const Gallery = () => {
-  const { images } = useSelector((store) => store.gallery);
+  const { images, isLoading } = useSelector((store) => store.gallery);
   const dispatch = useDispatch();
 
   const handleChange = (i) => {
@@ -32,6 +33,10 @@ const Gallery = () => {
       gsap.to(".gallery-img", { filter: "grayscale(0%)" });
     });
   }, []);
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <Wrapper className="gallery-img-container">

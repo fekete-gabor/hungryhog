@@ -361,6 +361,10 @@ const Wrapper = styled.div`
     font-size: 2rem;
     z-index: 1;
     cursor: pointer;
+    transition: var(--transition);
+    &:hover {
+      color: red;
+    }
   }
 
   .img {
@@ -386,6 +390,11 @@ const Wrapper = styled.div`
       cursor: pointer;
       display: block;
       z-index: 1;
+      transition: var(--transition);
+      background: linear-gradient(rgba(1, 1, 1, 0.5), rgba(1, 1, 1, 0.5));
+      &:hover {
+        color: var(--primary-clr-5);
+      }
     }
     img {
       width: 100%;
@@ -402,7 +411,7 @@ const Wrapper = styled.div`
   }
 
   footer {
-    background-color: beige;
+    background-color: #222;
     height: fit-content;
     margin: 0 auto;
     position: absolute;
