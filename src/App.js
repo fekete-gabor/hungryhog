@@ -4,7 +4,6 @@ import {
   MenuPage,
   AboutUsPage,
   GalleryPage,
-  NewsPage,
   ContactsPage,
   ErrorPage,
 } from "./pages";
@@ -20,7 +19,6 @@ const App = () => {
             <Route path="/menu" element={<MenuPage />} />
             <Route path="/rolunk" element={<AboutUsPage />} />
             <Route path="/galeria" element={<GalleryPage />} />
-            <Route path="/hirek" element={<NewsPage />} />
             <Route path="/elerhetosegek" element={<ContactsPage />} />
             <Route path="*" element={<ErrorPage />} />
           </Route>
