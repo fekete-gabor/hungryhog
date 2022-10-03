@@ -27,7 +27,7 @@ const Modal = () => {
 
     const loop = horizontalLoop(images, {
       paused: true,
-      draggable: true, // make it draggable
+      draggable: true,
     });
 
     images.forEach((img, i) =>
@@ -47,20 +47,6 @@ const Modal = () => {
         loop.previous({ duration: 0.4, ease: "power1.inOut" })
       );
 
-    /*
-This helper function makes a group of elements animate along the x-axis in a seamless, responsive loop.
-
-Features:
- - Uses xPercent so that even if the widths change (like if the window gets resized), it should still work in most cases.
- - When each item animates to the left or right enough, it will loop back to the other side
- - Optionally pass in a config object with values like draggable: true, center: true, speed (default: 1, which travels at roughly 100 pixels per second), paused (boolean), repeat, reversed, and paddingRight.
- - The returned timeline will have the following methods added to it:
-   - next() - animates to the next element using a timeline.tweenTo() which it returns. You can pass in a vars object to control duration, easing, etc.
-   - previous() - animates to the previous element using a timeline.tweenTo() which it returns. You can pass in a vars object to control duration, easing, etc.
-   - toIndex() - pass in a zero-based index value of the element that it should animate to, and optionally pass in a vars object to control duration, easing, etc. Always goes in the shortest direction
-   - current() - returns the current index (if an animation is in-progress, it reflects the final index)
-   - times - an Array of the times on the timeline where each element hits the "starting" spot.
- */
     function horizontalLoop(items, config) {
       items = gsap.utils.toArray(items);
       config = config || {};
@@ -92,7 +78,7 @@ Features:
         center = config.center,
         pixelsPerSecond = (config.speed || 1) * 100,
         snap =
-          config.snap === false ? (v) => v : gsap.utils.snap(config.snap || 1), // some browsers shift by a pixel to accommodate flex layouts, so for example if width is 20% the first element's width might be 242px, and the next 243px, alternating back and forth. So we snap to 5 percentage points to make things look more natural
+          config.snap === false ? (v) => v : gsap.utils.snap(config.snap || 1),
         timeOffset = 0,
         container =
           center === true
@@ -121,7 +107,6 @@ Features:
             b1 = b2;
           });
           gsap.set(items, {
-            // convert "x" to "xPercent" to make things responsive, and populate the widths/xPercents Arrays to make lookups faster.
             xPercent: (i) => xPercents[i],
           });
           totalWidth = getTotalWidth();
@@ -214,11 +199,11 @@ Features:
       function toIndex(index, vars) {
         vars = vars || {};
         Math.abs(index - curIndex) > length / 2 &&
-          (index += index > curIndex ? -length : length); // always go in the shortest direction
+          (index += index > curIndex ? -length : length);
         let newIndex = gsap.utils.wrap(0, length, index),
           time = times[newIndex];
+        // eslint-disable-next-line
         if (time > tl.time() !== index > curIndex) {
-          // if we're wrapping the timeline's playhead, make the proper adjustments
           time += tl.duration() * (index > curIndex ? 1 : -1);
         }
         if (time < 0 || time > tl.duration()) {
@@ -239,7 +224,7 @@ Features:
         return index;
       };
       tl.times = times;
-      tl.progress(1, true).progress(0, true); // pre-render for performance
+      tl.progress(1, true).progress(0, true);
       if (config.reversed) {
         tl.vars.onReverseComplete();
         tl.reverse();
@@ -255,10 +240,6 @@ Features:
               wrap(startProgress + (draggable.startX - draggable.x) * ratio)
             ),
           syncIndex = () => tl.closestIndex(true);
-        typeof InertiaPlugin === "undefined" &&
-          console.warn(
-            "InertiaPlugin required for momentum-based scrolling and snapping. https://greensock.com/club"
-          );
         draggable = Draggable.create(proxy, {
           trigger: items[0].parentNode,
           type: "x",

@@ -16,7 +16,10 @@ const Gallery = () => {
   };
 
   useEffect(() => {
-    gsap.utils.toArray(".gallery-img").forEach((img) => {
+    gsap.utils.toArray(".gallery-img").forEach((img, i) => {
+      gsap.set(img, { autoAlpha: 0 });
+      gsap.to(img, { autoAlpha: 1, delay: (i + 1) / 20 });
+
       img.addEventListener("mouseover", (e) => {
         gsap.to(".gallery-img", {
           filter: "grayscale(100%)",
@@ -32,7 +35,7 @@ const Gallery = () => {
     container.addEventListener("mouseleave", () => {
       gsap.to(".gallery-img", { filter: "grayscale(0%)" });
     });
-  }, []);
+  }, [images]);
 
   if (isLoading) {
     return <Spinner />;
