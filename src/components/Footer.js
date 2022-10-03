@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import logo from "../assets/cc_logo.png";
 import { Contacts, OpeningHours } from "./index";
 const Footer = () => {
   return (
@@ -11,12 +12,7 @@ const Footer = () => {
       </section>
       <section>
         <h4>kártya elfogadás</h4>
-        <img
-          src="https://www.merchantequip.com/images/logos/visa-mastercard-211x65.gif"
-          width="211"
-          height="65"
-          alt="Merchant Equipment Store Credit Card Logos"
-        />
+        <img src={logo} alt="Credit Card Logos" />
       </section>
       <section className="opening-hours">
         <header>
@@ -44,6 +40,7 @@ const Wrapper = styled.footer`
 
   .contacts {
     margin-bottom: 0.5rem;
+    height: fit-content;
   }
 
   p,
@@ -70,6 +67,8 @@ const Wrapper = styled.footer`
 
   .opening-hours {
     display: grid;
+    height: fit-content;
+    margin-bottom: 0.5rem;
     article {
       display: flex;
       gap: 2rem;
