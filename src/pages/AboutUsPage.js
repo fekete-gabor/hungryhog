@@ -49,6 +49,7 @@ const AboutUsPage = () => {
 const Wrapper = styled.section`
   width: 100%;
   height: fit-content;
+  background: var(--primary-white);
 `;
 
 export default AboutUsPage;

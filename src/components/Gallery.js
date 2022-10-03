@@ -60,11 +60,13 @@ const Gallery = () => {
 const Wrapper = styled.div`
   width: 100%;
   height: fit-content;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin: 3rem auto;
+  margin: 0rem auto;
+  padding: 3rem 0;
 
   div {
     max-width: 350px;

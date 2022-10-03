@@ -54,7 +54,7 @@ body {
   font-family: "Oswald", sans-serif, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
     sans-serif;
-  background: whitesmoke;
+  background: var(--primary-black);
   color: var(--clr-grey-1);
   line-height: 1.5;
   font-size: 0.875rem;
