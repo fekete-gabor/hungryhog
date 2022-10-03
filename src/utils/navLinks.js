@@ -21,11 +21,6 @@ export const links = [
   },
   {
     id: 5,
-    text: "hírek",
-    url: "/hirek",
-  },
-  {
-    id: 6,
     text: "elérhetőségek",
     url: "/elerhetosegek",
   },

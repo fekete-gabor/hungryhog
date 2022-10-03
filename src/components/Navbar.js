@@ -129,6 +129,7 @@ const Wrapper = styled.nav`
     grid-template-columns: auto 1fr auto;
     align-items: center;
     padding: 0rem 0.5rem;
+    position: relative;
   }
 
   .contacts-header {
@@ -239,6 +240,12 @@ const Wrapper = styled.nav`
 
     .nav-toggle {
       display: none;
+    }
+
+    h3 {
+      position: absolute;
+      top: 14px;
+      left: 30px;
     }
   }
 `;
