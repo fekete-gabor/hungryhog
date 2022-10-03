@@ -4,7 +4,7 @@ Hungry Hog restaurant.
 
 ## DEMO LINK
 
-Access my site at [Hungry Hog](www.hungryhog.netlify.app).
+Access my site at [Hungry Hog](https://www.hungryhog.netlify.app).
 
 ## ABOUT THIS SITE
 
