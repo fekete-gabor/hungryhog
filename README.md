@@ -28,6 +28,8 @@ The following technologies were used to create the site:
 - GSAP
 - Strapi Headless CMS
 - PostgreSQL database is hosted on [Railway.app](https://railway.app) (Migrated from Heroku).
+- Netlify
+- Cloudinary
 
 ## SETUP
 
