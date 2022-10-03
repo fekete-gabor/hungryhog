@@ -53,7 +53,7 @@ const MenuItems = () => {
 
 const Wrapper = styled.section`
   height: fit-content;
-  margin-bottom: 10rem;
+  padding-bottom: 10rem;
 
   .title-container {
     margin: 0 auto;
