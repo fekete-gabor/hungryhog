@@ -24,7 +24,7 @@ const HomePageMenu = () => {
     });
     setSlides(tempArray);
     // eslint-disable-next-line
-  }, [menuItems]);
+  }, [menuSlides, menuItems]);
 
   useEffect(() => {
     gsap.utils.toArray(".menu-container").forEach((item, i) => {
