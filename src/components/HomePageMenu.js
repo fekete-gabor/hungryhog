@@ -61,29 +61,28 @@ const HomePageMenu = () => {
   return (
     <Wrapper>
       <div className="main-container">
-        {slides &&
-          slides.map((item, i) => {
-            const type = item?.attributes?.type;
-            const img = item?.attributes?.img?.data?.attributes?.url;
+        {slides.map((item, i) => {
+          const type = item?.attributes?.type;
+          const img = item?.attributes?.img?.data?.attributes?.url;
 
-            if (type !== "összes") {
-              return (
-                <Link
-                  to={`/menu#${type}`}
-                  key={i}
-                  onClick={() => handleChange(type, i)}
-                >
-                  <div className="menu-container">
-                    <h2>{type}</h2>
-                    <img src={img || bg} alt={type} />
-                    <div className="gradient"></div>
-                  </div>
-                </Link>
-              );
-            } else {
-              return null;
-            }
-          })}
+          if (type !== "összes") {
+            return (
+              <Link
+                to={`/menu#${type}`}
+                key={i}
+                onClick={() => handleChange(type, i)}
+              >
+                <div className="menu-container">
+                  <h2>{type}</h2>
+                  <img src={img || bg} alt={type} />
+                  <div className="gradient"></div>
+                </div>
+              </Link>
+            );
+          } else {
+            return null;
+          }
+        })}
       </div>
     </Wrapper>
   );
@@ -91,6 +90,7 @@ const HomePageMenu = () => {
 
 const Wrapper = styled.section`
   width: 100%;
+  height: fit-content;
   background: var(--primary-clr-4);
   border-bottom: var(--border);
 

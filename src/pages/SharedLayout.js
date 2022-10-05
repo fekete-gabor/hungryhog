@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { getGalleryImages } from "../features/gallery/gallerySlice";
 import { isModalClose } from "../features/modal/modalSlice";
 import { getContacts } from "../features/contacts/contactsSlice";
-import { getMenuItems, getMenuSlides } from "../features/menu/menuSlice";
+import { getMenuItems } from "../features/menu/menuSlice";
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import { useLocation } from "react-router-dom";
 
@@ -16,7 +16,6 @@ const SharedLayout = () => {
   useEffect(() => {
     dispatch(getContacts());
     dispatch(getMenuItems());
-    dispatch(getMenuSlides());
     dispatch(getGalleryImages());
     // eslint-disable-next-line
   }, []);
