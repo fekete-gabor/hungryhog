@@ -1,14 +1,16 @@
 import { useEffect } from "react";
 import styled from "styled-components";
 import { MenuHero, MenuItems, MenuSidebar } from "../components";
-import { getMenuSlides } from "../features/menu/menuSlice";
-import { useDispatch } from "react-redux/es/exports";
+import { getMenuSlides, getMenuItems } from "../features/menu/menuSlice";
+import { useDispatch, useSelector } from "react-redux/es/exports";
 
 const MenuPage = () => {
+  const { menuSlides, menuItems } = useSelector((store) => store.menu);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getMenuSlides());
+    if (menuSlides.length <= 0) dispatch(getMenuSlides());
+    if (menuItems.length <= 0) dispatch(getMenuItems());
     // eslint-disable-next-line
   }, []);
 
