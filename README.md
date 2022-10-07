@@ -30,6 +30,8 @@ The following technologies were used to create the site:
 - PostgreSQL database is hosted on [Railway.app](https://railway.app) (Migrated from Heroku).
 - Netlify
 - Cloudinary
+- Yup
+- Formik
 
 ## SETUP
 
