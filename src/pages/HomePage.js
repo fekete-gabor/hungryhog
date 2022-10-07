@@ -14,8 +14,15 @@ import { useDispatch, useSelector } from "react-redux/es/exports";
 
 const HomePage = () => {
   const { menuSlides, menuItems } = useSelector((store) => store.menu);
-
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const refresh = sessionStorage.getItem("refresh");
+    if (!refresh) {
+      window.location.reload();
+      sessionStorage.setItem("refresh", "true");
+    }
+  }, []);
 
   useEffect(() => {
     if (menuSlides.length <= 0) dispatch(getMenuSlides());
