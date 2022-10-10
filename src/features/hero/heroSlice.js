@@ -16,6 +16,7 @@ export const getSlides = createAsyncThunk(
       const data = await response.data;
       return data;
     } catch (error) {
+      if (error.response.status === 401) window.location.reload();
       return thunkAPI.rejectWithValue(`${error.message}`);
     }
   }
