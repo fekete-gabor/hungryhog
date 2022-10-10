@@ -17,14 +17,6 @@ const HomePage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const refresh = sessionStorage.getItem("refresh");
-    if (!refresh) {
-      window.location.reload();
-      sessionStorage.setItem("refresh", "true");
-    }
-  }, []);
-
-  useEffect(() => {
     if (menuSlides.length <= 0) dispatch(getMenuSlides());
     if (menuItems.length <= 0) dispatch(getMenuItems());
     // eslint-disable-next-line
