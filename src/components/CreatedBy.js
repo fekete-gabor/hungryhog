@@ -12,7 +12,15 @@ const CreatedBy = () => {
   return (
     <Wrapper>
       <h5>
-        designed &amp; built by <span>&#10084; </span>fekete gábor, {date}
+        designed &amp; built by <span>&#10084; </span>
+        <a
+          href="https://fekete-gabor.netlify.app/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          fekete gábor
+        </a>
+        , {date}
       </h5>
     </Wrapper>
   );
@@ -31,6 +39,10 @@ const Wrapper = styled.section`
 
   span {
     color: var(--primary-clr-5);
+  }
+
+  a {
+    color: darkorchid;
   }
 `;
 
