@@ -4,18 +4,15 @@ import { useSelector } from "react-redux";
 import { gsap } from "gsap/dist/gsap";
 
 const HeroSlides = () => {
-  const { isActive, slides } = useSelector((store) => store.hero);
+  const { slides } = useSelector((store) => store.hero);
   const mediaQuery = useMediaQuery("(min-width: 620px)");
   const [mainImg, setMainImg] = useState();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     setMainImg(slides[currentIndex]?.attributes?.url);
-    // eslint-disable-next-line
-  }, [slides]);
 
-  useEffect(() => {
-    if (isActive) {
+    if (!mediaQuery) {
       setTimeout(() => {
         let index = currentIndex + 1;
         if (index > slides.length - 1) {
@@ -25,7 +22,7 @@ const HeroSlides = () => {
       }, 5000);
     }
     // eslint-disable-next-line
-  }, [isActive, currentIndex]);
+  }, [slides, mediaQuery, currentIndex]);
 
   useEffect(() => {
     if (mediaQuery) {
