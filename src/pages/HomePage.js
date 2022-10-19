@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import styled from "styled-components";
 import {
   Hero,
@@ -9,19 +8,8 @@ import {
   ContactsForm,
   GoogleMaps,
 } from "../components/";
-import { getMenuSlides, getMenuItems } from "../features/menu/menuSlice";
-import { useDispatch, useSelector } from "react-redux/es/exports";
 
 const HomePage = () => {
-  const { menuSlides, menuItems } = useSelector((store) => store.menu);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (menuSlides.length <= 0) dispatch(getMenuSlides());
-    if (menuItems.length <= 0) dispatch(getMenuItems());
-    // eslint-disable-next-line
-  }, []);
-
   return (
     <Wrapper>
       <Hero />

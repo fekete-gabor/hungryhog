@@ -1,6 +1,7 @@
 import { Navbar, Sidebar, Footer, CreatedBy, ScrollTop } from "../components";
 import { Outlet } from "react-router-dom";
 import { useEffect } from "react";
+import { getMenuSlides, getMenuItems } from "../features/menu/menuSlice";
 import { getGalleryImages } from "../features/gallery/gallerySlice";
 import { isModalClose } from "../features/modal/modalSlice";
 import { getContacts } from "../features/contacts/contactsSlice";
@@ -13,6 +14,8 @@ const SharedLayout = () => {
   const location = useLocation();
 
   useEffect(() => {
+    dispatch(getMenuSlides());
+    dispatch(getMenuItems());
     dispatch(getContacts());
     dispatch(getGalleryImages());
     // eslint-disable-next-line
