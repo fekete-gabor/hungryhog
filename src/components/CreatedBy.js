@@ -13,11 +13,7 @@ const CreatedBy = () => {
     <Wrapper>
       <h5>
         designed &amp; built by <span>&#10084; </span>
-        <a
-          href="https://fekete-gabor.netlify.app/"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href="https://feketegabor.dev/" target="_blank" rel="noreferrer">
           fekete gábor
         </a>
         , {date}
