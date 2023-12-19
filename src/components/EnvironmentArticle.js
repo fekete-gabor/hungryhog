@@ -4,6 +4,7 @@ const EnvironmentArticle = ({ props }) => {
   const mediaQuery = useMediaQuery("(min-width: 820px)");
   const { article, i } = props;
   const { title, desc } = article.attributes;
+
   const img = article?.attributes?.img?.data?.attributes?.url;
 
   if (i % 2 === 0 && mediaQuery) {
